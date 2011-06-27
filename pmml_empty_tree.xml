@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="3.1" xmlns="http://www.dmg.org/PMML-3_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header copyright="B02">
+<Application name="KNIME" version="2.2"/>
+</Header>
+<DataDictionary numberOfFields="5">
+<DataField name="age" optype="continuous" dataType="integer">
+<Interval closure="closedClosed" leftMargin="18" rightMargin="99"/>
+</DataField>
+<DataField name="gender" optype="categorical" dataType="string">
+<Value value="female"/>
+<Value value="male"/>
+</DataField>
+<DataField name="hp" optype="continuous" dataType="integer">
+<Interval closure="closedClosed" leftMargin="45" rightMargin="450"/>
+</DataField>
+<DataField name="brand" optype="categorical" dataType="string">
+<Value value="¿0rch€"/>
+<Value value="Völkswägen"/>
+<Value value="Mercedes"/>
+<Value value="Audi"/>
+</DataField>
+<DataField name="risk" optype="categorical" dataType="string">
+<Value value="high"/>
+<Value value="low"/>
+<Value value="medium"/>
+</DataField>
+</DataDictionary>
+<TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="multiSplit" missingValueStrategy="lastPrediction">
+<MiningSchema>
+<MiningField name="age"></MiningField>
+<MiningField name="gender"/>
+<MiningField name="hp"/>
+<MiningField name="brand"/>
+<MiningField name="risk" usageType="predicted"/>
+</MiningSchema>
+<Node id="0" score="low" recordCount="901.0">
+<True/>
+<ScoreDistribution value="high" recordCount="70.0"/>
+<ScoreDistribution value="low" recordCount="561.0"/>
+<ScoreDistribution value="medium" recordCount="270.0"/>
+<Node id="1" score="medium" recordCount="149.0">
+<SimplePredicate field="brand" operator="equal" value="¿0rch€"/>
+<ScoreDistribution value="high" recordCount="10.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="139.0"/>
+<Node id="2" score="high" recordCount="10.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="24.0"/>
+<ScoreDistribution value="high" recordCount="10.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="3" score="medium" recordCount="139.0">
+<SimplePredicate field="age" operator="greaterThan" value="24.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="139.0"/>
+</Node>
+</Node>
+<Node id="4" score="low" recordCount="308.0">
+<SimplePredicate field="brand" operator="equal" value="Völkswägen"/>
+<ScoreDistribution value="high" recordCount="40.0"/>
+<ScoreDistribution value="low" recordCount="248.0"/>
+<ScoreDistribution value="medium" recordCount="20.0"/>
+<Node id="5" score="low" recordCount="120.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="25.0"/>
+<ScoreDistribution value="high" recordCount="40.0"/>
+<ScoreDistribution value="low" recordCount="60.0"/>
+<ScoreDistribution value="medium" recordCount="20.0"/>
+<Node id="6" score="low" recordCount="60.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="45.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="60.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="7" score="high" recordCount="60.0">
+<SimplePredicate field="hp" operator="greaterThan" value="45.0"/>
+<ScoreDistribution value="high" recordCount="40.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="20.0"/>
+<Node id="8" score="medium" recordCount="20.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="75.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="20.0"/>
+</Node>
+<Node id="9" score="high" recordCount="40.0">
+<SimplePredicate field="hp" operator="greaterThan" value="75.0"/>
+<ScoreDistribution value="high" recordCount="40.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+</Node>
+</Node>
+<Node id="10" score="low" recordCount="188.0">
+<SimplePredicate field="age" operator="greaterThan" value="25.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="188.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+</Node>
+<Node id="11" score="low" recordCount="208.0">
+<SimplePredicate field="brand" operator="equal" value="Mercedes"/>
+<ScoreDistribution value="high" recordCount="13.0"/>
+<ScoreDistribution value="low" recordCount="143.0"/>
+<ScoreDistribution value="medium" recordCount="52.0"/>
+<Node id="12" score="medium" recordCount="36.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="25.0"/>
+<ScoreDistribution value="high" recordCount="13.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="23.0"/>
+<Node id="13" score="medium" recordCount="23.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="145.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="23.0"/>
+</Node>
+<Node id="14" score="high" recordCount="13.0">
+<SimplePredicate field="hp" operator="greaterThan" value="145.0"/>
+<ScoreDistribution value="high" recordCount="13.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+</Node>
+<Node id="15" score="low" recordCount="172.0">
+<SimplePredicate field="age" operator="greaterThan" value="25.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="143.0"/>
+<ScoreDistribution value="medium" recordCount="29.0"/>
+<Node id="16" score="low" recordCount="107.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="145.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="107.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="17" score="low" recordCount="65.0">
+<SimplePredicate field="hp" operator="greaterThan" value="145.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="36.0"/>
+<ScoreDistribution value="medium" recordCount="29.0"/>
+<Node id="18" score="low" recordCount="36.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="60.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="36.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="19" score="medium" recordCount="29.0">
+<SimplePredicate field="age" operator="greaterThan" value="60.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="29.0"/>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node id="20" score="low" recordCount="236.0">
+<SimplePredicate field="brand" operator="equal" value="Audi"/>
+<ScoreDistribution value="high" recordCount="7.0"/>
+<ScoreDistribution value="low" recordCount="170.0"/>
+<ScoreDistribution value="medium" recordCount="59.0"/>
+<Node id="21" score="medium" recordCount="34.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="25.0"/>
+<ScoreDistribution value="high" recordCount="7.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="27.0"/>
+<Node id="22" score="medium" recordCount="27.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="130.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="27.0"/>
+</Node>
+<Node id="23" score="high" recordCount="7.0">
+<SimplePredicate field="hp" operator="greaterThan" value="130.0"/>
+<ScoreDistribution value="high" recordCount="7.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+</Node>
+<Node id="24" score="low" recordCount="202.0">
+<SimplePredicate field="age" operator="greaterThan" value="25.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="170.0"/>
+<ScoreDistribution value="medium" recordCount="32.0"/>
+<Node id="25" score="low" recordCount="133.0">
+<SimplePredicate field="hp" operator="lessOrEqual" value="130.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="133.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="26" score="low" recordCount="69.0">
+<SimplePredicate field="hp" operator="greaterThan" value="130.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="37.0"/>
+<ScoreDistribution value="medium" recordCount="32.0"/>
+<Node id="27" score="low" recordCount="37.0">
+<SimplePredicate field="age" operator="lessOrEqual" value="60.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="37.0"/>
+<ScoreDistribution value="medium" recordCount="0.0"/>
+</Node>
+<Node id="28" score="medium" recordCount="32.0">
+<SimplePredicate field="age" operator="greaterThan" value="60.0"/>
+<ScoreDistribution value="high" recordCount="0.0"/>
+<ScoreDistribution value="low" recordCount="0.0"/>
+<ScoreDistribution value="medium" recordCount="32.0"/>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</TreeModel>
+</PMML>

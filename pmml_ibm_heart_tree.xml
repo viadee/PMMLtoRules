@@ -1,0 +1,1565 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PMML version="3.0" xmlns="http://www.dmg.org/PMML-3_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-3_0 http://www.dmg.org/v3-0/pmml-3-0.xsd">
+ <Header copyright="Copyright IBM Corp. 2002, 2005 All Rights Reserved">
+  <Application name="IBM DB2 Intelligent Miner" version="9.1"/>
+  <Timestamp>2006-03-21 14:00:31</Timestamp>
+ </Header>
+ <MiningBuildTask>
+  <Extension>&lt;?xml version="1.0" encoding="UTF-8" ?>
+&lt;DataMining>&lt;MiningTask trainData="trainData">&lt;MiningData name="trainData" tableName="RASPL.INPUT_034">&lt;Column alias="AGE" name="AGE" sqlType="SMALLINT"/>&lt;Column alias="SEX" name="SEX" sqlType="CHAR"/>&lt;Column alias="CP" name="CP" sqlType="CHAR"/>&lt;Column alias="TRESTBPS" name="TRESTBPS" sqlType="SMALLINT"/>&lt;Column alias="CHOL" name="CHOL" sqlType="SMALLINT"/>&lt;Column alias="FBS" name="FBS" sqlType="CHAR"/>&lt;Column alias="RESTECG" name="RESTECG" sqlType="CHAR"/>&lt;Column alias="THALACH" name="THALACH" sqlType="SMALLINT"/>&lt;Column alias="EXANG" name="EXANG" sqlType="CHAR"/>&lt;Column alias="OLDPEAK" name="OLDPEAK" sqlType="DECIMAL"/>&lt;Column alias="SLOPE" name="SLOPE" sqlType="CHAR"/>&lt;Column alias="CA" name="CA" sqlType="SMALLINT"/>&lt;Column alias="THAL" name="THAL" sqlType="CHAR"/>&lt;Column alias="NUM" name="NUM" sqlType="CHAR"/>&lt;/MiningData>&lt;MiningSettings>&lt;LogicalDataSpec>&lt;MiningField name="AGE" type="numerical"/>&lt;MiningField name="SEX" type="categorical"/>&lt;MiningField name="CP" type="categorical"/>&lt;MiningField name="TRESTBPS" type="numerical"/>&lt;MiningField name="CHOL" type="numerical"/>&lt;MiningField name="FBS" type="categorical"/>&lt;MiningField name="RESTECG" type="categorical"/>&lt;MiningField name="THALACH" type="numerical"/>&lt;MiningField name="EXANG" type="categorical"/>&lt;MiningField name="OLDPEAK" type="numerical"/>&lt;MiningField name="SLOPE" type="categorical"/>&lt;MiningField name="CA" type="numerical"/>&lt;MiningField name="THAL" type="categorical"/>&lt;MiningField name="NUM" type="categorical"/>&lt;/LogicalDataSpec>&lt;ClasSettings/>&lt;FieldUsageEntry field="NUM" usageType="target"/>&lt;/MiningSettings>&lt;TaskControl errorTable="IDMMX.ERRORTABLE" progressTable="IDMMX.PROGRESSTABLE"/>&lt;/MiningTask>&lt;/DataMining></Extension>
+ </MiningBuildTask>
+ <DataDictionary numberOfFields="14">
+  <DataField name="SEX" displayName="SEX" optype="categorical">
+   <Value value="male"/>
+   <Value value="female"/>
+  </DataField>
+  <DataField name="CP" displayName="CP" optype="categorical">
+   <Value value="typ_angina"/>
+   <Value value="asympt"/>
+   <Value value="non_anginal"/>
+   <Value value="atyp_angina"/>
+  </DataField>
+  <DataField name="FBS" displayName="FBS" optype="categorical">
+   <Value value="t"/>
+   <Value value="f"/>
+  </DataField>
+  <DataField name="RESTECG" displayName="RESTECG" optype="categorical">
+   <Value value="left_vent_hyper"/>
+   <Value value="normal"/>
+   <Value value="st_t_wave_abnormality"/>
+  </DataField>
+  <DataField name="EXANG" displayName="EXANG" optype="categorical">
+   <Value value="no"/>
+   <Value value="yes"/>
+  </DataField>
+  <DataField name="SLOPE" displayName="SLOPE" optype="categorical">
+   <Value value="down"/>
+   <Value value="flat"/>
+   <Value value="up"/>
+  </DataField>
+  <DataField name="THAL" displayName="THAL" optype="categorical">
+   <Value value="fixed_defect"/>
+   <Value value="normal"/>
+   <Value value="reversable_defect"/>
+   <Value value="&quot;&quot;"/>
+  </DataField>
+  <DataField name="NUM" displayName="NUM" optype="categorical">
+   <Value value="&lt;50"/>
+   <Value value=">50_1"/>
+  </DataField>
+  <DataField name="AGE" displayName="AGE" optype="continuous"/>
+  <DataField name="TRESTBPS" displayName="TRESTBPS" optype="continuous"/>
+  <DataField name="CHOL" displayName="CHOL" optype="continuous"/>
+  <DataField name="THALACH" displayName="THALACH" optype="continuous"/>
+  <DataField name="OLDPEAK" displayName="OLDPEAK" optype="continuous"/>
+  <DataField name="CA" displayName="CA" optype="continuous"/>
+ </DataDictionary>
+ <TreeModel modelName="dmg.tree classification model" functionName="classification" splitCharacteristic="binarySplit" x-costRate="100">
+  <Extension>
+   <X-TreeModelExtension>
+    <X-ConfusionMatrix>
+     <Matrix>
+      <Array type="int" n="2"> 148 17</Array>
+      <Array type="int" n="2"> 27 111</Array>
+     </Matrix>
+    </X-ConfusionMatrix>
+   </X-TreeModelExtension>
+  </Extension>
+  <Extension name="Quality">
+   <X-Quality x-model="dmg.tree classification model" x-targetField="NUM" x-dataUsage="training" x-dataName="RASPL.INPUT_034" x-modelQuality="0.808442365975728">
+    <X-LiftData x-targetFieldValue="&lt;50" x-rankingQuality="0.762099253403601">
+     <X-LiftGraph x-usage="model">
+      <X-XCoordinates>
+       <Array type="int" n="6"> 117 146 175 192 212 303</Array>
+      </X-XCoordinates>
+      <X-YCoordinates>
+       <Array type="int" n="6"> 105 22 21 4 3 10</Array>
+      </X-YCoordinates>
+      <X-BoundaryValues>
+       <Array type="real" n="6"> 0.897435897435897 0.758620689655172 0.724137931034483 0.235294117647059 0.15 0.10989010989011</Array>
+      </X-BoundaryValues>
+     </X-LiftGraph>
+    </X-LiftData>
+    <X-LiftData x-targetFieldValue=">50_1" x-rankingQuality="0.762099253403601">
+     <X-LiftGraph x-usage="model">
+      <X-XCoordinates>
+       <Array type="int" n="6"> 91 111 128 157 186 303</Array>
+      </X-XCoordinates>
+      <X-YCoordinates>
+       <Array type="int" n="6"> 81 17 13 8 7 12</Array>
+      </X-YCoordinates>
+      <X-BoundaryValues>
+       <Array type="real" n="6"> 0.89010989010989 0.85 0.764705882352941 0.275862068965517 0.241379310344828 0.102564102564103</Array>
+      </X-BoundaryValues>
+     </X-LiftGraph>
+    </X-LiftData>
+    <X-AccuracyData x-targetFieldValue="&lt;50" x-accuracyQuality="0.896969696969697"/>
+    <X-AccuracyData x-targetFieldValue=">50_1" x-accuracyQuality="0.804347826086957"/>
+    <X-ConfusionMatrix>
+     <Matrix>
+      <Array type="int" n="2"> 148 17</Array>
+      <Array type="int" n="2"> 27 111</Array>
+     </Matrix>
+    </X-ConfusionMatrix>
+   </X-Quality>
+  </Extension>
+  <Extension name="X-Correlations">
+   <X-Correlations type="linear">
+    <Array n="14" type="string"> "AGE" "CA" "CHOL" "CP" "EXANG" "FBS" "NUM" "OLDPEAK" "RESTECG" "SEX" "SLOPE" "THAL" "THALACH" "TRESTBPS"</Array>
+    <Matrix kind="symmetric" nbRows="14" nbCols="14" diagDefault="1" offDiagDefault="-99">
+     <Array n="1" type="real"> 1</Array>
+     <Array n="2" type="real"> 0.369270478295574 1</Array>
+     <Array n="3" type="real"> 0.213677956559562 0.129493572662468 1</Array>
+     <Array n="4" type="real"> 0.675048838333902 0.366623070156023 -99 1</Array>
+     <Array n="5" type="real"> 0.529086320410854 0.284815094374009 -99 0.603077407380938 1</Array>
+     <Array n="6" type="real"> 0.477473077026072 0.217729716610497 -99 0.159130662488889 0.0362840510725449 1</Array>
+     <Array n="7" type="real"> 0.532836079206031 0.627801433828451 -99 0.65168318829412 0.566035186287667 0.0396471051036016 1</Array>
+     <Array n="8" type="real"> 0.178395512490971 0.30476444279461 0.0354792716973734 0.408252434949216 0.427306169459838 0.14763440987677 0.576420084629118 1</Array>
+     <Array n="9" type="real"> 0.719091396775171 0.219062713799101 -99 0.215576775290118 0.139474130149884 0.122668134472294 0.253062423688532 0.349978382040234 1</Array>
+     <Array n="10" type="real"> 0.496410195517586 0.224714471006055 -99 0.209853921317861 0.198362339414548 0.0636200932988295 0.382496602192947 0.250635975874034 0.155275375681183 1</Array>
+     <Array n="11" type="real"> 0.549379583280185 0.234203895376279 -99 0.354738421762937 0.391379048613367 0.148395750471208 0.520649007836932 0.684222241883431 0.228695669788608 0.065346864817715 1</Array>
+     <Array n="12" type="real"> 0.572854116040682 0.310636540029617 -99 0.402433455133155 0.442955490398451 0.189535463087446 0.662846925696928 0.444478349446732 0.131363078390261 0.506700146139232 0.395539177737779 1</Array>
+     <Array n="13" type="real"> -0.398521938121068 -0.266580605395114 -0.00993983864269823 0.818626225958701 0.74505380585742 0.674137901763294 0.730182824418887 -0.327627371227057 0.806450688497163 0.746097531863018 0.797648186104806 0.819223302720881 1</Array>
+     <Array n="14" type="real"> 0.279350906561288 0.100551635854694 0.123174206532391 0.651452511835382 0.563191054009361 0.585973061024233 0.521589913996732 0.190276062206888 0.704791297654238 0.480392267648694 0.596458299880658 0.70133194220598 -0.0466977281479543 1</Array>
+    </Matrix>
+   </X-Correlations>
+  </Extension>
+  <MiningSchema>
+   <MiningField usageType="active" name="CA" importance="0.193638784425748"/>
+   <MiningField usageType="active" name="CP" importance="0.249918260384575"/>
+   <MiningField usageType="active" name="THAL" importance="0.556442955189677"/>
+   <MiningField usageType="supplementary" name="AGE"/>
+   <MiningField usageType="supplementary" name="TRESTBPS"/>
+   <MiningField usageType="supplementary" name="CHOL"/>
+   <MiningField usageType="supplementary" name="THALACH"/>
+   <MiningField usageType="supplementary" name="OLDPEAK"/>
+   <MiningField usageType="supplementary" name="SEX"/>
+   <MiningField usageType="supplementary" name="FBS"/>
+   <MiningField usageType="supplementary" name="RESTECG"/>
+   <MiningField usageType="supplementary" name="EXANG"/>
+   <MiningField usageType="supplementary" name="SLOPE"/>
+   <MiningField usageType="predicted" name="NUM"/>
+  </MiningSchema>
+  <ModelStats>
+   <Extension>
+    <Partition name="&lt;50" size="165">
+     <PartitionFieldStats field="AGE">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="52.4969711303711" minimum="29" maximum="76"/>
+      <Array type="int" n="10"> 1 8 25 25 25 31 20 20 8 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="TRESTBPS">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="129.303024291992" minimum="94" maximum="180"/>
+      <Array type="int" n="10"> 8 24 37 42 31 14 5 3 1 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CHOL">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="242.23030090332" minimum="126" maximum="564"/>
+      <Array type="int" n="10"> 6 46 61 29 18 2 2 0 0 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THALACH">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="158.466659545898" minimum="96" maximum="202"/>
+      <Array type="int" n="10"> 0 1 1 10 8 23 48 47 23 4</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="OLDPEAK">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="0.351515144109726" minimum="0" maximum="4"/>
+      <Array type="int" n="10"> 120 36 0 6 0 2 1 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CA">
+      <Counts totalFreq="165"/>
+      <NumericInfo mean="0.266666680574417" minimum="0" maximum="3"/>
+      <Array type="int" n="10"> 134 0 0 21 0 0 7 0 0 3</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEX">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="2"> 93 72</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CP">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="4"> 16 39 69 41</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="FBS">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="2"> 23 142</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="RESTECG">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="3"> 68 96 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="EXANG">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="2"> 142 23</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SLOPE">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="3"> 9 49 107</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THAL">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="4"> 6 130 28 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="NUM">
+      <Counts totalFreq="165"/>
+      <Array type="int" n="2"> 165 0</Array>
+     </PartitionFieldStats>
+    </Partition>
+    <Partition name=">50_1" size="138">
+     <PartitionFieldStats field="AGE">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="56.601448059082" minimum="35" maximum="77"/>
+      <Array type="int" n="10"> 0 3 8 13 12 29 43 23 6 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="TRESTBPS">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="134.398544311523" minimum="100" maximum="200"/>
+      <Array type="int" n="10"> 2 18 30 32 26 13 8 5 2 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CHOL">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="251.086959838867" minimum="131" maximum="409"/>
+      <Array type="int" n="10"> 6 27 45 40 17 1 2 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THALACH">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="139.101455688477" minimum="71" maximum="195"/>
+      <Array type="int" n="10"> 1 5 10 16 27 30 29 16 3 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="OLDPEAK">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="1.26086962223053" minimum="0" maximum="6"/>
+      <Array type="int" n="10"> 46 42 0 28 0 15 5 0 1 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CA">
+      <Counts totalFreq="138"/>
+      <NumericInfo mean="1.13768112659454" minimum="0" maximum="3"/>
+      <Array type="int" n="10"> 46 0 0 44 0 0 31 0 0 17</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEX">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="2"> 114 24</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CP">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="4"> 7 104 18 9</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="FBS">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="2"> 22 116</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="RESTECG">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="3"> 79 56 3</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="EXANG">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="2"> 62 76</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SLOPE">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="3"> 12 91 35</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THAL">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="4"> 12 36 89 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="NUM">
+      <Counts totalFreq="138"/>
+      <Array type="int" n="2"> 0 138</Array>
+     </PartitionFieldStats>
+    </Partition>
+   </Extension>
+   <UnivariateStats field="AGE">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="54.3663368225098" minimum="29" maximum="77"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="29" rightMargin="33.7999992370605"/>
+     <Interval closure="openClosed" leftMargin="33.7999992370605" rightMargin="38.5999984741211"/>
+     <Interval closure="openClosed" leftMargin="38.5999984741211" rightMargin="43.3999977111816"/>
+     <Interval closure="openClosed" leftMargin="43.3999977111816" rightMargin="48.1999969482422"/>
+     <Interval closure="openClosed" leftMargin="48.1999969482422" rightMargin="52.9999961853027"/>
+     <Interval closure="openClosed" leftMargin="52.9999961853027" rightMargin="57.7999954223633"/>
+     <Interval closure="openClosed" leftMargin="57.7999954223633" rightMargin="62.5999946594238"/>
+     <Interval closure="openClosed" leftMargin="62.5999946594238" rightMargin="67.3999938964844"/>
+     <Interval closure="openClosed" leftMargin="67.3999938964844" rightMargin="72.1999969482422"/>
+     <Interval closure="openClosed" leftMargin="72.1999969482422" rightMargin="77"/>
+     <Array type="int" n="10"> 1 11 33 38 37 60 63 43 14 3</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="TRESTBPS">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="131.623764038086" minimum="94" maximum="200"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="94" rightMargin="104.599998474121"/>
+     <Interval closure="openClosed" leftMargin="104.599998474121" rightMargin="115.199996948242"/>
+     <Interval closure="openClosed" leftMargin="115.199996948242" rightMargin="125.799995422363"/>
+     <Interval closure="openClosed" leftMargin="125.799995422363" rightMargin="136.399993896484"/>
+     <Interval closure="openClosed" leftMargin="136.399993896484" rightMargin="147"/>
+     <Interval closure="openClosed" leftMargin="147" rightMargin="157.600006103516"/>
+     <Interval closure="openClosed" leftMargin="157.600006103516" rightMargin="168.200012207031"/>
+     <Interval closure="openClosed" leftMargin="168.200012207031" rightMargin="178.800018310547"/>
+     <Interval closure="openClosed" leftMargin="178.800018310547" rightMargin="189.400024414062"/>
+     <Interval closure="openClosed" leftMargin="189.400024414062" rightMargin="200.000030517578"/>
+     <Array type="int" n="10"> 10 42 67 74 57 27 13 8 3 2</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="CHOL">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="246.264022827148" minimum="126" maximum="564"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="126" rightMargin="169.800003051758"/>
+     <Interval closure="openClosed" leftMargin="169.800003051758" rightMargin="213.600006103516"/>
+     <Interval closure="openClosed" leftMargin="213.600006103516" rightMargin="257.399993896484"/>
+     <Interval closure="openClosed" leftMargin="257.399993896484" rightMargin="301.199981689453"/>
+     <Interval closure="openClosed" leftMargin="301.199981689453" rightMargin="344.999969482422"/>
+     <Interval closure="openClosed" leftMargin="344.999969482422" rightMargin="388.799957275391"/>
+     <Interval closure="openClosed" leftMargin="388.799957275391" rightMargin="432.599945068359"/>
+     <Interval closure="openClosed" leftMargin="432.599945068359" rightMargin="476.399932861328"/>
+     <Interval closure="openClosed" leftMargin="476.399932861328" rightMargin="520.199951171875"/>
+     <Interval closure="openClosed" leftMargin="520.199951171875" rightMargin="563.999938964844"/>
+     <Array type="int" n="10"> 12 73 106 69 35 3 4 0 0 1</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="THALACH">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="149.646865844727" minimum="71" maximum="202"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="71" rightMargin="84.0999984741211"/>
+     <Interval closure="openClosed" leftMargin="84.0999984741211" rightMargin="97.1999969482422"/>
+     <Interval closure="openClosed" leftMargin="97.1999969482422" rightMargin="110.299995422363"/>
+     <Interval closure="openClosed" leftMargin="110.299995422363" rightMargin="123.399993896484"/>
+     <Interval closure="openClosed" leftMargin="123.399993896484" rightMargin="136.5"/>
+     <Interval closure="openClosed" leftMargin="136.5" rightMargin="149.600006103516"/>
+     <Interval closure="openClosed" leftMargin="149.600006103516" rightMargin="162.700012207031"/>
+     <Interval closure="openClosed" leftMargin="162.700012207031" rightMargin="175.800018310547"/>
+     <Interval closure="openClosed" leftMargin="175.800018310547" rightMargin="188.900024414062"/>
+     <Interval closure="openClosed" leftMargin="188.900024414062" rightMargin="202.000030517578"/>
+     <Array type="int" n="10"> 1 6 11 26 35 53 77 63 26 5</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="OLDPEAK">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="0.765676558017731" minimum="0" maximum="6"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="0" rightMargin="0.600000023841858"/>
+     <Interval closure="openClosed" leftMargin="0.600000023841858" rightMargin="1.20000004768372"/>
+     <Interval closure="openClosed" leftMargin="1.20000004768372" rightMargin="1.80000007152557"/>
+     <Interval closure="openClosed" leftMargin="1.80000007152557" rightMargin="2.40000009536743"/>
+     <Interval closure="openClosed" leftMargin="2.40000009536743" rightMargin="3"/>
+     <Interval closure="openClosed" leftMargin="3" rightMargin="3.59999990463257"/>
+     <Interval closure="openClosed" leftMargin="3.59999990463257" rightMargin="4.19999980926514"/>
+     <Interval closure="openClosed" leftMargin="4.19999980926514" rightMargin="4.79999971389771"/>
+     <Interval closure="openClosed" leftMargin="4.79999971389771" rightMargin="5.39999961853027"/>
+     <Interval closure="openClosed" leftMargin="5.39999961853027" rightMargin="5.99999952316284"/>
+     <Array type="int" n="10"> 166 78 0 34 0 17 6 0 1 1</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="CA">
+    <Counts totalFreq="303"/>
+    <NumericInfo mean="0.663366317749023" minimum="0" maximum="3"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="0" rightMargin="0.300000011920929"/>
+     <Interval closure="openClosed" leftMargin="0.300000011920929" rightMargin="0.600000023841858"/>
+     <Interval closure="openClosed" leftMargin="0.600000023841858" rightMargin="0.900000035762787"/>
+     <Interval closure="openClosed" leftMargin="0.900000035762787" rightMargin="1.20000004768372"/>
+     <Interval closure="openClosed" leftMargin="1.20000004768372" rightMargin="1.5"/>
+     <Interval closure="openClosed" leftMargin="1.5" rightMargin="1.79999995231628"/>
+     <Interval closure="openClosed" leftMargin="1.79999995231628" rightMargin="2.09999990463257"/>
+     <Interval closure="openClosed" leftMargin="2.09999990463257" rightMargin="2.39999985694885"/>
+     <Interval closure="openClosed" leftMargin="2.39999985694885" rightMargin="2.69999980926514"/>
+     <Interval closure="openClosed" leftMargin="2.69999980926514" rightMargin="2.99999976158142"/>
+     <Array type="int" n="10"> 180 0 0 65 0 0 38 0 0 20</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="SEX">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="2"> 207 96</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="CP">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="4"> 23 143 87 50</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="FBS">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="2"> 45 258</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="RESTECG">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="3"> 147 152 4</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="EXANG">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="2"> 204 99</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="SLOPE">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="3"> 21 140 142</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="THAL">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="4"> 18 166 117 2</Array>
+    </DiscrStats>
+   </UnivariateStats>
+   <UnivariateStats field="NUM">
+    <Counts totalFreq="303"/>
+    <DiscrStats>
+     <Array type="int" n="2"> 165 138</Array>
+    </DiscrStats>
+   </UnivariateStats>
+  </ModelStats>
+  <Node score="&lt;50" recordCount="303">
+   <Extension>
+    <Partition name="1" size="303">
+     <PartitionFieldStats field="AGE">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 1 11 33 38 37 60 63 43 14 3</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="TRESTBPS">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 10 42 67 74 57 27 13 8 3 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CHOL">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 12 73 106 69 35 3 4 0 0 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THALACH">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 1 6 11 26 35 53 77 63 26 5</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="OLDPEAK">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 166 78 0 34 0 17 6 0 1 1</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CA">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="10"> 180 0 0 65 0 0 38 0 0 20</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEX">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="2"> 207 96</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="CP">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="4"> 23 143 87 50</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="FBS">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="2"> 45 258</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="RESTECG">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="3"> 147 152 4</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="EXANG">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="2"> 204 99</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SLOPE">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="3"> 21 140 142</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="THAL">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="4"> 18 166 117 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="NUM">
+      <Counts totalFreq="303"/>
+      <Array type="int" n="2"> 165 138</Array>
+     </PartitionFieldStats>
+    </Partition>
+   </Extension>
+   <True/>
+   <ScoreDistribution recordCount="165" value="&lt;50"/>
+   <ScoreDistribution recordCount="138" value=">50_1"/>
+   <Node score="&lt;50" recordCount="166">
+    <Extension>
+     <Partition name="1.1" size="166">
+      <PartitionFieldStats field="AGE">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 1 8 21 28 22 26 27 22 8 3</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="TRESTBPS">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 7 26 37 41 32 14 6 1 2 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CHOL">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 7 41 58 34 22 2 2 0 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="THALACH">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 1 2 4 11 11 19 47 47 22 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="OLDPEAK">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 114 37 0 7 0 8 0 0 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CA">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="10"> 117 0 0 29 0 0 14 0 0 6</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEX">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="2"> 87 79</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CP">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="4"> 13 52 62 39</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="FBS">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="2"> 20 146</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="RESTECG">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="3"> 78 86 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="EXANG">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="2"> 135 31</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SLOPE">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="3"> 8 56 102</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="THAL">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="4"> 0 166 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="NUM">
+       <Counts totalFreq="166"/>
+       <Array type="int" n="2"> 130 36</Array>
+      </PartitionFieldStats>
+     </Partition>
+    </Extension>
+    <SimpleSetPredicate field="THAL" booleanOperator="isIn">
+     <Array n="1" type="string"> "normal"</Array>
+    </SimpleSetPredicate>
+    <ScoreDistribution recordCount="130" value="&lt;50"/>
+    <ScoreDistribution recordCount="36" value=">50_1"/>
+    <Node score="&lt;50" x-prunedByAlgorithm="yes" recordCount="117">
+     <Extension>
+      <Partition name="1.1.1" size="117">
+       <PartitionFieldStats field="AGE">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 1 8 18 23 17 16 20 10 3 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="TRESTBPS">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 5 16 27 30 23 11 2 1 2 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CHOL">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 5 32 45 19 13 2 1 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THALACH">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 1 1 0 7 4 14 31 38 19 2</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="OLDPEAK">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 82 27 0 3 0 5 0 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CA">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="10"> 117 0 0 0 0 0 0 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEX">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="2"> 60 57</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CP">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="4"> 6 32 49 30</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="FBS">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="2"> 10 107</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="RESTECG">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="3"> 47 68 2</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="EXANG">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="2"> 100 17</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SLOPE">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="3"> 5 39 73</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THAL">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="4"> 0 117 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="NUM">
+        <Counts totalFreq="117"/>
+        <Array type="int" n="2"> 105 12</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <SimplePredicate field="CA" operator="lessThan" value="0.5"/>
+     <ScoreDistribution recordCount="105" value="&lt;50"/>
+     <ScoreDistribution recordCount="12" value=">50_1"/>
+     <Extension name="prunedNodes">
+      <Node score="&lt;50" recordCount="112">
+       <SimplePredicate field="TRESTBPS" operator="lessThan" value="158"/>
+       <ScoreDistribution recordCount="103" value="&lt;50"/>
+       <ScoreDistribution recordCount="9" value=">50_1"/>
+       <Node score="&lt;50" recordCount="91">
+        <SimplePredicate field="AGE" operator="lessThan" value="59.5"/>
+        <ScoreDistribution recordCount="88" value="&lt;50"/>
+        <ScoreDistribution recordCount="3" value=">50_1"/>
+        <Node score="&lt;50" recordCount="88">
+         <SimplePredicate field="OLDPEAK" operator="lessThan" value="2.5"/>
+         <ScoreDistribution recordCount="86" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+         <Node score="&lt;50" recordCount="29">
+          <SimplePredicate field="THALACH" operator="lessThan" value="160.5"/>
+          <ScoreDistribution recordCount="27" value="&lt;50"/>
+          <ScoreDistribution recordCount="2" value=">50_1"/>
+          <Node score="&lt;50" recordCount="26">
+           <SimplePredicate field="CHOL" operator="lessThan" value="279.5"/>
+           <ScoreDistribution recordCount="25" value="&lt;50"/>
+           <ScoreDistribution recordCount="1" value=">50_1"/>
+           <Node score="&lt;50" recordCount="4">
+            <SimplePredicate field="TRESTBPS" operator="lessThan" value="109"/>
+            <ScoreDistribution recordCount="3" value="&lt;50"/>
+            <ScoreDistribution recordCount="1" value=">50_1"/>
+           </Node>
+           <Node score="&lt;50" recordCount="22">
+            <True/>
+            <ScoreDistribution recordCount="22" value="&lt;50"/>
+            <ScoreDistribution recordCount="0" value=">50_1"/>
+           </Node>
+          </Node>
+          <Node score="&lt;50" recordCount="3">
+           <True/>
+           <ScoreDistribution recordCount="2" value="&lt;50"/>
+           <ScoreDistribution recordCount="1" value=">50_1"/>
+          </Node>
+         </Node>
+         <Node score="&lt;50" recordCount="59">
+          <True/>
+          <ScoreDistribution recordCount="59" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+        </Node>
+        <Node score="&lt;50" recordCount="3">
+         <True/>
+         <ScoreDistribution recordCount="2" value="&lt;50"/>
+         <ScoreDistribution recordCount="1" value=">50_1"/>
+        </Node>
+       </Node>
+       <Node score="&lt;50" recordCount="21">
+        <True/>
+        <ScoreDistribution recordCount="15" value="&lt;50"/>
+        <ScoreDistribution recordCount="6" value=">50_1"/>
+        <Node score="&lt;50" recordCount="13">
+         <SimplePredicate field="THALACH" operator="lessThan" value="152.5"/>
+         <ScoreDistribution recordCount="11" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+         <Node score=">50_1" recordCount="1">
+          <SimplePredicate field="THALACH" operator="lessThan" value="83.5"/>
+          <ScoreDistribution recordCount="0" value="&lt;50"/>
+          <ScoreDistribution recordCount="1" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="12">
+          <True/>
+          <ScoreDistribution recordCount="11" value="&lt;50"/>
+          <ScoreDistribution recordCount="1" value=">50_1"/>
+          <Node score="&lt;50" recordCount="3">
+           <SimpleSetPredicate field="CP" booleanOperator="isIn">
+            <Array n="1" type="string"> "asympt"</Array>
+           </SimpleSetPredicate>
+           <ScoreDistribution recordCount="2" value="&lt;50"/>
+           <ScoreDistribution recordCount="1" value=">50_1"/>
+          </Node>
+          <Node score="&lt;50" recordCount="9">
+           <True/>
+           <ScoreDistribution recordCount="9" value="&lt;50"/>
+           <ScoreDistribution recordCount="0" value=">50_1"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node score="&lt;50" recordCount="8">
+         <True/>
+         <ScoreDistribution recordCount="4" value="&lt;50"/>
+         <ScoreDistribution recordCount="4" value=">50_1"/>
+         <Node score=">50_1" recordCount="2">
+          <SimplePredicate field="THALACH" operator="lessThan" value="156"/>
+          <ScoreDistribution recordCount="0" value="&lt;50"/>
+          <ScoreDistribution recordCount="2" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="6">
+          <True/>
+          <ScoreDistribution recordCount="4" value="&lt;50"/>
+          <ScoreDistribution recordCount="2" value=">50_1"/>
+          <Node score="&lt;50" recordCount="3">
+           <SimplePredicate field="CHOL" operator="lessThan" value="291"/>
+           <ScoreDistribution recordCount="3" value="&lt;50"/>
+           <ScoreDistribution recordCount="0" value=">50_1"/>
+          </Node>
+          <Node score=">50_1" recordCount="3">
+           <True/>
+           <ScoreDistribution recordCount="1" value="&lt;50"/>
+           <ScoreDistribution recordCount="2" value=">50_1"/>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+      <Node score=">50_1" recordCount="5">
+       <True/>
+       <ScoreDistribution recordCount="2" value="&lt;50"/>
+       <ScoreDistribution recordCount="3" value=">50_1"/>
+       <Node score=">50_1" recordCount="3">
+        <SimplePredicate field="AGE" operator="lessThan" value="61.5"/>
+        <ScoreDistribution recordCount="0" value="&lt;50"/>
+        <ScoreDistribution recordCount="3" value=">50_1"/>
+       </Node>
+       <Node score="&lt;50" recordCount="2">
+        <True/>
+        <ScoreDistribution recordCount="2" value="&lt;50"/>
+        <ScoreDistribution recordCount="0" value=">50_1"/>
+       </Node>
+      </Node>
+     </Extension>
+    </Node>
+    <Node score="&lt;50" recordCount="49">
+     <Extension>
+      <Partition name="1.1.2" size="49">
+       <PartitionFieldStats field="AGE">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 0 0 3 5 5 10 7 12 5 2</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="TRESTBPS">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 2 10 10 11 9 3 4 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CHOL">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 2 9 13 15 9 0 1 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THALACH">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 0 1 4 4 7 5 16 9 3 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="OLDPEAK">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 32 10 0 4 0 3 0 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CA">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="10"> 0 0 0 29 0 0 14 0 0 6</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEX">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="2"> 27 22</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CP">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="4"> 7 20 13 9</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="FBS">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="2"> 10 39</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="RESTECG">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="3"> 31 18 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="EXANG">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="2"> 35 14</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SLOPE">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="3"> 3 17 29</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THAL">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="4"> 0 49 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="NUM">
+        <Counts totalFreq="49"/>
+        <Array type="int" n="2"> 25 24</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <True/>
+     <ScoreDistribution recordCount="25" value="&lt;50"/>
+     <ScoreDistribution recordCount="24" value=">50_1"/>
+     <Node score=">50_1" x-prunedByAlgorithm="yes" recordCount="20">
+      <Extension>
+       <Partition name="1.1.2.1" size="20">
+        <PartitionFieldStats field="AGE">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 0 0 0 3 1 4 3 7 1 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="TRESTBPS">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 1 8 4 3 3 0 1 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CHOL">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 1 3 4 8 4 0 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THALACH">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 0 1 4 3 3 2 5 1 1 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="OLDPEAK">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 9 5 0 3 0 3 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CA">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="10"> 0 0 0 10 0 0 6 0 0 4</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SEX">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="2"> 14 6</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CP">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="4"> 0 20 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="FBS">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="2"> 2 18</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="RESTECG">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="3"> 15 5 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="EXANG">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="2"> 9 11</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SLOPE">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="3"> 2 11 7</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THAL">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="4"> 0 20 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="NUM">
+         <Counts totalFreq="20"/>
+         <Array type="int" n="2"> 3 17</Array>
+        </PartitionFieldStats>
+       </Partition>
+      </Extension>
+      <SimpleSetPredicate field="CP" booleanOperator="isIn">
+       <Array n="1" type="string"> "asympt"</Array>
+      </SimpleSetPredicate>
+      <ScoreDistribution recordCount="3" value="&lt;50"/>
+      <ScoreDistribution recordCount="17" value=">50_1"/>
+      <Extension name="prunedNodes">
+       <Node score="&lt;50" recordCount="6">
+        <SimpleSetPredicate field="SEX" booleanOperator="isIn">
+         <Array n="1" type="string"> "female"</Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution recordCount="3" value="&lt;50"/>
+        <ScoreDistribution recordCount="3" value=">50_1"/>
+        <Node score=">50_1" recordCount="4">
+         <SimplePredicate field="AGE" operator="lessThan" value="63.5"/>
+         <ScoreDistribution recordCount="1" value="&lt;50"/>
+         <ScoreDistribution recordCount="3" value=">50_1"/>
+        </Node>
+        <Node score="&lt;50" recordCount="2">
+         <True/>
+         <ScoreDistribution recordCount="2" value="&lt;50"/>
+         <ScoreDistribution recordCount="0" value=">50_1"/>
+        </Node>
+       </Node>
+       <Node score=">50_1" recordCount="14">
+        <True/>
+        <ScoreDistribution recordCount="0" value="&lt;50"/>
+        <ScoreDistribution recordCount="14" value=">50_1"/>
+       </Node>
+      </Extension>
+     </Node>
+     <Node score="&lt;50" x-prunedByAlgorithm="yes" recordCount="29">
+      <Extension>
+       <Partition name="1.1.2.2" size="29">
+        <PartitionFieldStats field="AGE">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 0 3 2 4 6 4 5 4 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="TRESTBPS">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 1 2 6 8 6 3 3 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CHOL">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 1 6 9 7 5 0 1 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THALACH">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 0 0 1 4 3 11 8 2 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="OLDPEAK">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 23 5 0 1 0 0 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CA">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 0 0 19 0 0 8 0 0 2</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SEX">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 13 16</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CP">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="4"> 7 0 13 9</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="FBS">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 8 21</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="RESTECG">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="3"> 16 13 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="EXANG">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 26 3</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SLOPE">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="3"> 1 6 22</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THAL">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="4"> 0 29 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="NUM">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 22 7</Array>
+        </PartitionFieldStats>
+       </Partition>
+      </Extension>
+      <True/>
+      <ScoreDistribution recordCount="22" value="&lt;50"/>
+      <ScoreDistribution recordCount="7" value=">50_1"/>
+      <Extension name="prunedNodes">
+       <Node score="&lt;50" recordCount="11">
+        <SimplePredicate field="CHOL" operator="lessThan" value="237.5"/>
+        <ScoreDistribution recordCount="6" value="&lt;50"/>
+        <ScoreDistribution recordCount="5" value=">50_1"/>
+        <Node score="&lt;50" recordCount="5">
+         <SimplePredicate field="AGE" operator="lessThan" value="55.5"/>
+         <ScoreDistribution recordCount="4" value="&lt;50"/>
+         <ScoreDistribution recordCount="1" value=">50_1"/>
+         <Node score=">50_1" recordCount="1">
+          <SimplePredicate field="CHOL" operator="lessThan" value="173.5"/>
+          <ScoreDistribution recordCount="0" value="&lt;50"/>
+          <ScoreDistribution recordCount="1" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="4">
+          <True/>
+          <ScoreDistribution recordCount="4" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+        </Node>
+        <Node score=">50_1" recordCount="6">
+         <True/>
+         <ScoreDistribution recordCount="2" value="&lt;50"/>
+         <ScoreDistribution recordCount="4" value=">50_1"/>
+         <Node score=">50_1" recordCount="4">
+          <SimplePredicate field="AGE" operator="lessThan" value="62"/>
+          <ScoreDistribution recordCount="0" value="&lt;50"/>
+          <ScoreDistribution recordCount="4" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="2">
+          <True/>
+          <ScoreDistribution recordCount="2" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+        </Node>
+       </Node>
+       <Node score="&lt;50" recordCount="18">
+        <True/>
+        <ScoreDistribution recordCount="16" value="&lt;50"/>
+        <ScoreDistribution recordCount="2" value=">50_1"/>
+        <Node score="&lt;50" recordCount="7">
+         <SimpleSetPredicate field="CP" booleanOperator="isIn">
+          <Array n="2" type="string"> "atyp_angina" "typ_angina"</Array>
+         </SimpleSetPredicate>
+         <ScoreDistribution recordCount="5" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+         <Node score="&lt;50" recordCount="4">
+          <SimpleSetPredicate field="FBS" booleanOperator="isIn">
+           <Array n="1" type="string"> "f"</Array>
+          </SimpleSetPredicate>
+          <ScoreDistribution recordCount="4" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+         <Node score=">50_1" recordCount="3">
+          <True/>
+          <ScoreDistribution recordCount="1" value="&lt;50"/>
+          <ScoreDistribution recordCount="2" value=">50_1"/>
+         </Node>
+        </Node>
+        <Node score="&lt;50" recordCount="11">
+         <True/>
+         <ScoreDistribution recordCount="11" value="&lt;50"/>
+         <ScoreDistribution recordCount="0" value=">50_1"/>
+        </Node>
+       </Node>
+      </Extension>
+     </Node>
+    </Node>
+   </Node>
+   <Node score=">50_1" recordCount="137">
+    <Extension>
+     <Partition name="1.2" size="137">
+      <PartitionFieldStats field="AGE">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 0 3 12 10 15 34 36 21 6 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="TRESTBPS">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 3 16 30 33 25 13 7 7 1 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CHOL">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 5 32 48 35 13 1 2 0 0 1</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="THALACH">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 0 4 7 15 24 34 30 16 4 3</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="OLDPEAK">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 52 41 0 27 0 9 6 0 1 1</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CA">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="10"> 63 0 0 36 0 0 24 0 0 14</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEX">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="2"> 120 17</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="CP">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="4"> 10 91 25 11</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="FBS">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="2"> 25 112</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="RESTECG">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="3"> 69 66 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="EXANG">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="2"> 69 68</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SLOPE">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="3"> 13 84 40</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="THAL">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="4"> 18 0 117 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="NUM">
+       <Counts totalFreq="137"/>
+       <Array type="int" n="2"> 35 102</Array>
+      </PartitionFieldStats>
+     </Partition>
+    </Extension>
+    <True/>
+    <ScoreDistribution recordCount="35" value="&lt;50"/>
+    <ScoreDistribution recordCount="102" value=">50_1"/>
+    <Node score=">50_1" x-prunedByAlgorithm="yes" recordCount="91">
+     <Extension>
+      <Partition name="1.2.1" size="91">
+       <PartitionFieldStats field="AGE">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 0 2 9 6 9 23 26 14 2 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="TRESTBPS">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 1 10 18 24 20 9 5 3 0 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CHOL">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 4 24 28 22 10 1 2 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THALACH">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 0 3 6 12 19 26 16 8 1 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="OLDPEAK">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 28 28 0 21 0 7 5 0 1 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CA">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="10"> 34 0 0 24 0 0 23 0 0 10</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEX">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="2"> 78 13</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CP">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="4"> 0 91 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="FBS">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="2"> 16 75</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="RESTECG">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="3"> 48 41 2</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="EXANG">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="2"> 32 59</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SLOPE">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="3"> 9 57 25</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THAL">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="4"> 12 0 78 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="NUM">
+        <Counts totalFreq="91"/>
+        <Array type="int" n="2"> 10 81</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <SimpleSetPredicate field="CP" booleanOperator="isIn">
+      <Array n="1" type="string"> "asympt"</Array>
+     </SimpleSetPredicate>
+     <ScoreDistribution recordCount="10" value="&lt;50"/>
+     <ScoreDistribution recordCount="81" value=">50_1"/>
+     <Extension name="prunedNodes">
+      <Node score=">50_1" recordCount="28">
+       <SimplePredicate field="OLDPEAK" operator="lessThan" value="0.5"/>
+       <ScoreDistribution recordCount="8" value="&lt;50"/>
+       <ScoreDistribution recordCount="20" value=">50_1"/>
+       <Node score="&lt;50" recordCount="13">
+        <SimplePredicate field="CHOL" operator="lessThan" value="237.5"/>
+        <ScoreDistribution recordCount="7" value="&lt;50"/>
+        <ScoreDistribution recordCount="6" value=">50_1"/>
+        <Node score="&lt;50" recordCount="10">
+         <SimplePredicate field="TRESTBPS" operator="lessThan" value="143"/>
+         <ScoreDistribution recordCount="7" value="&lt;50"/>
+         <ScoreDistribution recordCount="3" value=">50_1"/>
+         <Node score="&lt;50" recordCount="4">
+          <SimplePredicate field="THALACH" operator="lessThan" value="152"/>
+          <ScoreDistribution recordCount="4" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="6">
+          <True/>
+          <ScoreDistribution recordCount="3" value="&lt;50"/>
+          <ScoreDistribution recordCount="3" value=">50_1"/>
+          <Node score=">50_1" recordCount="2">
+           <SimplePredicate field="CHOL" operator="lessThan" value="192"/>
+           <ScoreDistribution recordCount="0" value="&lt;50"/>
+           <ScoreDistribution recordCount="2" value=">50_1"/>
+          </Node>
+          <Node score="&lt;50" recordCount="4">
+           <True/>
+           <ScoreDistribution recordCount="3" value="&lt;50"/>
+           <ScoreDistribution recordCount="1" value=">50_1"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node score=">50_1" recordCount="3">
+         <True/>
+         <ScoreDistribution recordCount="0" value="&lt;50"/>
+         <ScoreDistribution recordCount="3" value=">50_1"/>
+        </Node>
+       </Node>
+       <Node score=">50_1" recordCount="15">
+        <True/>
+        <ScoreDistribution recordCount="1" value="&lt;50"/>
+        <ScoreDistribution recordCount="14" value=">50_1"/>
+        <Node score="&lt;50" recordCount="1">
+         <SimplePredicate field="THALACH" operator="lessThan" value="108"/>
+         <ScoreDistribution recordCount="1" value="&lt;50"/>
+         <ScoreDistribution recordCount="0" value=">50_1"/>
+        </Node>
+        <Node score=">50_1" recordCount="14">
+         <True/>
+         <ScoreDistribution recordCount="0" value="&lt;50"/>
+         <ScoreDistribution recordCount="14" value=">50_1"/>
+        </Node>
+       </Node>
+      </Node>
+      <Node score=">50_1" recordCount="63">
+       <True/>
+       <ScoreDistribution recordCount="2" value="&lt;50"/>
+       <ScoreDistribution recordCount="61" value=">50_1"/>
+       <Node score=">50_1" recordCount="54">
+        <SimpleSetPredicate field="THAL" booleanOperator="isIn">
+         <Array n="2" type="string"> "\"\"" "reversable_defect"</Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution recordCount="0" value="&lt;50"/>
+        <ScoreDistribution recordCount="54" value=">50_1"/>
+       </Node>
+       <Node score=">50_1" recordCount="9">
+        <True/>
+        <ScoreDistribution recordCount="2" value="&lt;50"/>
+        <ScoreDistribution recordCount="7" value=">50_1"/>
+        <Node score=">50_1" recordCount="8">
+         <SimplePredicate field="AGE" operator="lessThan" value="65"/>
+         <ScoreDistribution recordCount="1" value="&lt;50"/>
+         <ScoreDistribution recordCount="7" value=">50_1"/>
+         <Node score="&lt;50" recordCount="1">
+          <SimplePredicate field="TRESTBPS" operator="lessThan" value="112"/>
+          <ScoreDistribution recordCount="1" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+         <Node score=">50_1" recordCount="7">
+          <True/>
+          <ScoreDistribution recordCount="0" value="&lt;50"/>
+          <ScoreDistribution recordCount="7" value=">50_1"/>
+         </Node>
+        </Node>
+        <Node score="&lt;50" recordCount="1">
+         <True/>
+         <ScoreDistribution recordCount="1" value="&lt;50"/>
+         <ScoreDistribution recordCount="0" value=">50_1"/>
+        </Node>
+       </Node>
+      </Node>
+     </Extension>
+    </Node>
+    <Node score="&lt;50" recordCount="46">
+     <Extension>
+      <Partition name="1.2.2" size="46">
+       <PartitionFieldStats field="AGE">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 1 3 4 6 11 10 7 4 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="TRESTBPS">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 2 6 12 9 5 4 2 4 1 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CHOL">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 1 8 20 13 3 0 0 0 0 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THALACH">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 1 1 3 5 8 14 8 3 3</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="OLDPEAK">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 24 13 0 6 0 2 1 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CA">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 29 0 0 12 0 0 1 0 0 4</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEX">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="2"> 42 4</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="CP">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="4"> 10 0 25 11</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="FBS">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="2"> 9 37</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="RESTECG">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="3"> 21 25 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="EXANG">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="2"> 37 9</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SLOPE">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="3"> 4 27 15</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="THAL">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="4"> 6 0 39 1</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="NUM">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="2"> 25 21</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <True/>
+     <ScoreDistribution recordCount="25" value="&lt;50"/>
+     <ScoreDistribution recordCount="21" value=">50_1"/>
+     <Node score="&lt;50" x-prunedByAlgorithm="yes" recordCount="29">
+      <Extension>
+       <Partition name="1.2.2.1" size="29">
+        <PartitionFieldStats field="AGE">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 1 3 4 3 7 4 6 1 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="TRESTBPS">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 1 5 9 3 3 3 0 4 1 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CHOL">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 7 10 8 3 0 0 0 0 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THALACH">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 0 0 0 1 4 4 11 4 3 2</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="OLDPEAK">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 17 9 0 1 0 1 1 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CA">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="10"> 29 0 0 0 0 0 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SEX">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 26 3</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CP">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="4"> 10 0 11 8</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="FBS">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 6 23</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="RESTECG">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="3"> 14 15 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="EXANG">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 24 5</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SLOPE">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="3"> 4 15 10</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THAL">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="4"> 3 0 25 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="NUM">
+         <Counts totalFreq="29"/>
+         <Array type="int" n="2"> 21 8</Array>
+        </PartitionFieldStats>
+       </Partition>
+      </Extension>
+      <SimplePredicate field="CA" operator="lessThan" value="0.5"/>
+      <ScoreDistribution recordCount="21" value="&lt;50"/>
+      <ScoreDistribution recordCount="8" value=">50_1"/>
+      <Extension name="prunedNodes">
+       <Node score=">50_1" recordCount="5">
+        <SimpleSetPredicate field="EXANG" booleanOperator="isIn">
+         <Array n="1" type="string"> "yes"</Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution recordCount="2" value="&lt;50"/>
+        <ScoreDistribution recordCount="3" value=">50_1"/>
+        <Node score="&lt;50" recordCount="3">
+         <SimplePredicate field="AGE" operator="lessThan" value="61"/>
+         <ScoreDistribution recordCount="2" value="&lt;50"/>
+         <ScoreDistribution recordCount="1" value=">50_1"/>
+        </Node>
+        <Node score=">50_1" recordCount="2">
+         <True/>
+         <ScoreDistribution recordCount="0" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+        </Node>
+       </Node>
+       <Node score="&lt;50" recordCount="24">
+        <True/>
+        <ScoreDistribution recordCount="19" value="&lt;50"/>
+        <ScoreDistribution recordCount="5" value=">50_1"/>
+        <Node score="&lt;50" recordCount="4">
+         <SimplePredicate field="TRESTBPS" operator="lessThan" value="112.5"/>
+         <ScoreDistribution recordCount="2" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+        </Node>
+        <Node score="&lt;50" recordCount="20">
+         <True/>
+         <ScoreDistribution recordCount="17" value="&lt;50"/>
+         <ScoreDistribution recordCount="3" value=">50_1"/>
+         <Node score="&lt;50" recordCount="11">
+          <SimplePredicate field="AGE" operator="lessThan" value="56.5"/>
+          <ScoreDistribution recordCount="11" value="&lt;50"/>
+          <ScoreDistribution recordCount="0" value=">50_1"/>
+         </Node>
+         <Node score="&lt;50" recordCount="9">
+          <True/>
+          <ScoreDistribution recordCount="6" value="&lt;50"/>
+          <ScoreDistribution recordCount="3" value=">50_1"/>
+          <Node score=">50_1" recordCount="1">
+           <SimplePredicate field="AGE" operator="lessThan" value="57.5"/>
+           <ScoreDistribution recordCount="0" value="&lt;50"/>
+           <ScoreDistribution recordCount="1" value=">50_1"/>
+          </Node>
+          <Node score="&lt;50" recordCount="8">
+           <True/>
+           <ScoreDistribution recordCount="6" value="&lt;50"/>
+           <ScoreDistribution recordCount="2" value=">50_1"/>
+           <Node score=">50_1" recordCount="1">
+            <SimplePredicate field="CHOL" operator="lessThan" value="216"/>
+            <ScoreDistribution recordCount="0" value="&lt;50"/>
+            <ScoreDistribution recordCount="1" value=">50_1"/>
+           </Node>
+           <Node score="&lt;50" recordCount="7">
+            <True/>
+            <ScoreDistribution recordCount="6" value="&lt;50"/>
+            <ScoreDistribution recordCount="1" value=">50_1"/>
+            <Node score="&lt;50" recordCount="5">
+             <SimplePredicate field="THALACH" operator="lessThan" value="157"/>
+             <ScoreDistribution recordCount="5" value="&lt;50"/>
+             <ScoreDistribution recordCount="0" value=">50_1"/>
+            </Node>
+            <Node score="&lt;50" recordCount="2">
+             <True/>
+             <ScoreDistribution recordCount="1" value="&lt;50"/>
+             <ScoreDistribution recordCount="1" value=">50_1"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Extension>
+     </Node>
+     <Node score=">50_1" x-prunedByAlgorithm="yes" recordCount="17">
+      <Extension>
+       <Partition name="1.2.2.2" size="17">
+        <PartitionFieldStats field="AGE">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 0 0 0 0 3 4 6 1 3 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="TRESTBPS">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 1 1 3 6 2 1 2 0 0 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CHOL">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 1 1 10 5 0 0 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THALACH">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 0 1 1 2 1 4 3 4 0 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="OLDPEAK">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 7 4 0 5 0 1 0 0 0 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CA">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="10"> 0 0 0 12 0 0 1 0 0 4</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SEX">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="2"> 16 1</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="CP">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="4"> 0 0 14 3</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="FBS">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="2"> 3 14</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="RESTECG">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="3"> 7 10 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="EXANG">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="2"> 13 4</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="SLOPE">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="3"> 0 12 5</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="THAL">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="4"> 3 0 14 0</Array>
+        </PartitionFieldStats>
+        <PartitionFieldStats field="NUM">
+         <Counts totalFreq="17"/>
+         <Array type="int" n="2"> 4 13</Array>
+        </PartitionFieldStats>
+       </Partition>
+      </Extension>
+      <True/>
+      <ScoreDistribution recordCount="4" value="&lt;50"/>
+      <ScoreDistribution recordCount="13" value=">50_1"/>
+      <Extension name="prunedNodes">
+       <Node score="&lt;50" recordCount="5">
+        <SimpleSetPredicate field="SLOPE" booleanOperator="isIn">
+         <Array n="1" type="string"> "up"</Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution recordCount="3" value="&lt;50"/>
+        <ScoreDistribution recordCount="2" value=">50_1"/>
+        <Node score=">50_1" recordCount="2">
+         <SimpleSetPredicate field="RESTECG" booleanOperator="isIn">
+          <Array n="1" type="string"> "left_vent_hyper"</Array>
+         </SimpleSetPredicate>
+         <ScoreDistribution recordCount="0" value="&lt;50"/>
+         <ScoreDistribution recordCount="2" value=">50_1"/>
+        </Node>
+        <Node score="&lt;50" recordCount="3">
+         <True/>
+         <ScoreDistribution recordCount="3" value="&lt;50"/>
+         <ScoreDistribution recordCount="0" value=">50_1"/>
+        </Node>
+       </Node>
+       <Node score=">50_1" recordCount="12">
+        <True/>
+        <ScoreDistribution recordCount="1" value="&lt;50"/>
+        <ScoreDistribution recordCount="11" value=">50_1"/>
+        <Node score=">50_1" recordCount="8">
+         <SimplePredicate field="CA" operator="lessThan" value="2"/>
+         <ScoreDistribution recordCount="0" value="&lt;50"/>
+         <ScoreDistribution recordCount="8" value=">50_1"/>
+        </Node>
+        <Node score=">50_1" recordCount="4">
+         <True/>
+         <ScoreDistribution recordCount="1" value="&lt;50"/>
+         <ScoreDistribution recordCount="3" value=">50_1"/>
+        </Node>
+       </Node>
+      </Extension>
+     </Node>
+    </Node>
+   </Node>
+  </Node>
+ </TreeModel>
+</PMML>

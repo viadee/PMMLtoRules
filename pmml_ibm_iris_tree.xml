@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<PMML version="2.0">
+ <Header copyright="Copyright IBM Corp. 2002, All Rights Reserved">
+  <Application name="IBM DB2 Intelligent Miner" version="8.1"/>
+ </Header>
+ <DataDictionary numberOfFields="5">
+  <DataField name="PETALLEN" optype="continuous"/>
+  <DataField name="PETALWID" optype="continuous"/>
+  <DataField name="SEPALLEN" optype="continuous"/>
+  <DataField name="SEPALWID" optype="continuous"/>
+  <DataField name="SPECIES" optype="categorical">
+   <Value value="setosa"/>
+   <Value value="versicolor"/>
+   <Value value="virginica"/>
+  </DataField>
+ </DataDictionary>
+ <TreeModel modelName="TreClaIrisBuild" functionName="classification" splitCharacteristic="binarySplit">
+  <Extension>
+   <X-TreeModelExtension>
+    <X-ConfusionMatrix>
+     <Matrix>
+      <Array type="int" n="3"> 50 0 0</Array>
+      <Array type="int" n="3"> 0 49 1</Array>
+      <Array type="int" n="3"> 0 5 45</Array>
+     </Matrix>
+    </X-ConfusionMatrix>
+   </X-TreeModelExtension>
+  </Extension>
+  <MiningSchema>
+   <MiningField name="PETALLEN" usageType="active"/>
+   <MiningField name="PETALWID" usageType="active"/>
+   <MiningField name="SEPALLEN" usageType="supplementary"/>
+   <MiningField name="SEPALWID" usageType="supplementary"/>
+   <MiningField name="SPECIES" usageType="predicted"/>
+  </MiningSchema>
+  <ModelStats>
+   <Extension>
+    <Partition name="setosa" size="50">
+     <PartitionFieldStats field="PETALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="14.64" minimum="10" maximum="19"/>
+      <Array type="int" n="10"> 37 13 0 0 0 0 0 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="PETALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="2.44" minimum="1" maximum="6"/>
+      <Array type="int" n="10"> 41 8 1 0 0 0 0 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="50.06" minimum="43" maximum="58"/>
+      <Array type="int" n="10"> 9 19 12 9 1 0 0 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="34.18" minimum="23" maximum="44"/>
+      <Array type="int" n="10"> 0 1 0 1 11 16 8 9 2 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SPECIES">
+      <Counts totalFreq="50"/>
+      <Array type="int" n="3"> 50 0 0</Array>
+     </PartitionFieldStats>
+    </Partition>
+    <Partition name="versicolor" size="50">
+     <PartitionFieldStats field="PETALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="42.6" minimum="30" maximum="51"/>
+      <Array type="int" n="10"> 0 0 0 3 8 25 14 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="PETALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="13.26" minimum="10" maximum="18"/>
+      <Array type="int" n="10"> 0 0 0 7 8 30 4 1 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="59.36" minimum="49" maximum="70"/>
+      <Array type="int" n="10"> 0 3 2 16 9 11 7 2 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="27.7" minimum="20" maximum="34"/>
+      <Array type="int" n="10"> 3 6 12 13 11 5 0 0 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SPECIES">
+      <Counts totalFreq="50"/>
+      <Array type="int" n="3"> 0 50 0</Array>
+     </PartitionFieldStats>
+    </Partition>
+    <Partition name="virginica" size="50">
+     <PartitionFieldStats field="PETALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="55.52" minimum="45" maximum="69"/>
+      <Array type="int" n="10"> 0 0 0 0 0 1 15 18 11 5</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="PETALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="20.26" minimum="14" maximum="25"/>
+      <Array type="int" n="10"> 0 0 0 0 0 3 2 22 9 14</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALLEN">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="65.88" minimum="49" maximum="79"/>
+      <Array type="int" n="10"> 0 1 0 2 6 15 11 4 5 6</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALWID">
+      <Counts totalFreq="50"/>
+      <NumericInfo mean="29.74" minimum="22" maximum="38"/>
+      <Array type="int" n="10"> 1 0 10 10 16 10 1 2 0 0</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SPECIES">
+      <Counts totalFreq="50"/>
+      <Array type="int" n="3"> 0 0 50</Array>
+     </PartitionFieldStats>
+    </Partition>
+   </Extension>
+   <UnivariateStats field="PETALLEN">
+    <Counts totalFreq="150"/>
+    <NumericInfo mean="37.5867" minimum="10" maximum="69"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="10" rightMargin="15.9"/>
+     <Interval closure="openClosed" leftMargin="15.9" rightMargin="21.8"/>
+     <Interval closure="openClosed" leftMargin="21.8" rightMargin="27.7"/>
+     <Interval closure="openClosed" leftMargin="27.7" rightMargin="33.6"/>
+     <Interval closure="openClosed" leftMargin="33.6" rightMargin="39.5"/>
+     <Interval closure="openClosed" leftMargin="39.5" rightMargin="45.4"/>
+     <Interval closure="openClosed" leftMargin="45.4" rightMargin="51.3"/>
+     <Interval closure="openClosed" leftMargin="51.3" rightMargin="57.2"/>
+     <Interval closure="openClosed" leftMargin="57.2" rightMargin="63.1"/>
+     <Interval closure="openClosed" leftMargin="63.1" rightMargin="69"/>
+     <Array type="int" n="10"> 37 13 0 3 8 26 29 18 11 5</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="PETALWID">
+    <Counts totalFreq="150"/>
+    <NumericInfo mean="11.9867" minimum="1" maximum="25"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="1" rightMargin="3.4"/>
+     <Interval closure="openClosed" leftMargin="3.4" rightMargin="5.8"/>
+     <Interval closure="openClosed" leftMargin="5.8" rightMargin="8.2"/>
+     <Interval closure="openClosed" leftMargin="8.2" rightMargin="10.6"/>
+     <Interval closure="openClosed" leftMargin="10.6" rightMargin="13"/>
+     <Interval closure="openClosed" leftMargin="13" rightMargin="15.4"/>
+     <Interval closure="openClosed" leftMargin="15.4" rightMargin="17.8"/>
+     <Interval closure="openClosed" leftMargin="17.8" rightMargin="20.2"/>
+     <Interval closure="openClosed" leftMargin="20.2" rightMargin="22.6"/>
+     <Interval closure="openClosed" leftMargin="22.6" rightMargin="25"/>
+     <Array type="int" n="10"> 41 8 1 7 8 33 6 23 9 14</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="SEPALLEN">
+    <Counts totalFreq="150"/>
+    <NumericInfo mean="58.4333" minimum="43" maximum="79"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="43" rightMargin="46.6"/>
+     <Interval closure="openClosed" leftMargin="46.6" rightMargin="50.2"/>
+     <Interval closure="openClosed" leftMargin="50.2" rightMargin="53.8"/>
+     <Interval closure="openClosed" leftMargin="53.8" rightMargin="57.4"/>
+     <Interval closure="openClosed" leftMargin="57.4" rightMargin="61"/>
+     <Interval closure="openClosed" leftMargin="61" rightMargin="64.6"/>
+     <Interval closure="openClosed" leftMargin="64.6" rightMargin="68.2"/>
+     <Interval closure="openClosed" leftMargin="68.2" rightMargin="71.8"/>
+     <Interval closure="openClosed" leftMargin="71.8" rightMargin="75.4"/>
+     <Interval closure="openClosed" leftMargin="75.4" rightMargin="79"/>
+     <Array type="int" n="10"> 9 23 14 27 16 26 18 6 5 6</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="SEPALWID">
+    <Counts totalFreq="150"/>
+    <NumericInfo mean="30.54" minimum="20" maximum="44"/>
+    <ContStats>
+     <Interval closure="openClosed" leftMargin="20" rightMargin="22.4"/>
+     <Interval closure="openClosed" leftMargin="22.4" rightMargin="24.8"/>
+     <Interval closure="openClosed" leftMargin="24.8" rightMargin="27.2"/>
+     <Interval closure="openClosed" leftMargin="27.2" rightMargin="29.6"/>
+     <Interval closure="openClosed" leftMargin="29.6" rightMargin="32"/>
+     <Interval closure="openClosed" leftMargin="32" rightMargin="34.4"/>
+     <Interval closure="openClosed" leftMargin="34.4" rightMargin="36.8"/>
+     <Interval closure="openClosed" leftMargin="36.8" rightMargin="39.2"/>
+     <Interval closure="openClosed" leftMargin="39.2" rightMargin="41.6"/>
+     <Interval closure="openClosed" leftMargin="41.6" rightMargin="44"/>
+     <Array type="int" n="10"> 4 7 22 24 38 31 9 11 2 2</Array>
+    </ContStats>
+   </UnivariateStats>
+   <UnivariateStats field="SPECIES">
+    <Counts totalFreq="150"/>
+    <DiscrStats>
+     <Array type="int" n="3"> 50 50 50</Array>
+    </DiscrStats>
+   </UnivariateStats>
+  </ModelStats>
+  <Node score="setosa" recordCount="150">
+   <Extension>
+    <Partition name="1" size="150">
+     <PartitionFieldStats field="PETALLEN">
+      <Counts totalFreq="150"/>
+      <Array type="int" n="10"> 37 13 0 3 8 26 29 18 11 5</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="PETALWID">
+      <Counts totalFreq="150"/>
+      <Array type="int" n="10"> 41 8 1 7 8 33 6 23 9 14</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALLEN">
+      <Counts totalFreq="150"/>
+      <Array type="int" n="10"> 9 23 14 27 16 26 18 6 5 6</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SEPALWID">
+      <Counts totalFreq="150"/>
+      <Array type="int" n="10"> 4 7 22 24 38 31 9 11 2 2</Array>
+     </PartitionFieldStats>
+     <PartitionFieldStats field="SPECIES">
+      <Counts totalFreq="150"/>
+      <Array type="int" n="3"> 50 50 50</Array>
+     </PartitionFieldStats>
+    </Partition>
+   </Extension>
+   <True/>
+   <ScoreDistribution value="setosa" recordCount="50"/>
+   <ScoreDistribution value="versicolor" recordCount="50"/>
+   <ScoreDistribution value="virginica" recordCount="50"/>
+   <Node score="setosa" recordCount="50">
+    <Extension>
+     <Partition name="1.1" size="50">
+      <PartitionFieldStats field="PETALLEN">
+       <Counts totalFreq="50"/>
+       <Array type="int" n="10"> 37 13 0 0 0 0 0 0 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="PETALWID">
+       <Counts totalFreq="50"/>
+       <Array type="int" n="10"> 41 8 1 0 0 0 0 0 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEPALLEN">
+       <Counts totalFreq="50"/>
+       <Array type="int" n="10"> 9 19 12 9 1 0 0 0 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEPALWID">
+       <Counts totalFreq="50"/>
+       <Array type="int" n="10"> 0 1 0 1 11 16 8 9 2 2</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SPECIES">
+       <Counts totalFreq="50"/>
+       <Array type="int" n="3"> 50 0 0</Array>
+      </PartitionFieldStats>
+     </Partition>
+    </Extension>
+    <SimplePredicate field="PETALLEN" operator="lessThan" value="24.5"/>
+    <ScoreDistribution value="setosa" recordCount="50"/>
+    <ScoreDistribution value="versicolor" recordCount="0"/>
+    <ScoreDistribution value="virginica" recordCount="0"/>
+   </Node>
+   <Node score="versicolor" recordCount="100">
+    <Extension>
+     <Partition name="1.2" size="100">
+      <PartitionFieldStats field="PETALLEN">
+       <Counts totalFreq="100"/>
+       <Array type="int" n="10"> 0 0 0 3 8 26 29 18 11 5</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="PETALWID">
+       <Counts totalFreq="100"/>
+       <Array type="int" n="10"> 0 0 0 7 8 33 6 23 9 14</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEPALLEN">
+       <Counts totalFreq="100"/>
+       <Array type="int" n="10"> 0 4 2 18 15 26 18 6 5 6</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SEPALWID">
+       <Counts totalFreq="100"/>
+       <Array type="int" n="10"> 4 6 22 23 27 15 1 2 0 0</Array>
+      </PartitionFieldStats>
+      <PartitionFieldStats field="SPECIES">
+       <Counts totalFreq="100"/>
+       <Array type="int" n="3"> 0 50 50</Array>
+      </PartitionFieldStats>
+     </Partition>
+    </Extension>
+    <True/>
+    <ScoreDistribution value="setosa" recordCount="0"/>
+    <ScoreDistribution value="versicolor" recordCount="50"/>
+    <ScoreDistribution value="virginica" recordCount="50"/>
+    <Node score="versicolor" recordCount="54">
+     <Extension>
+      <Partition name="1.2.1" size="54">
+       <PartitionFieldStats field="PETALLEN">
+        <Counts totalFreq="54"/>
+        <Array type="int" n="10"> 0 0 0 3 8 26 15 1 1 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="PETALWID">
+        <Counts totalFreq="54"/>
+        <Array type="int" n="10"> 0 0 0 7 8 33 6 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEPALLEN">
+        <Counts totalFreq="54"/>
+        <Array type="int" n="10"> 0 4 2 16 9 13 7 2 1 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEPALWID">
+        <Counts totalFreq="54"/>
+        <Array type="int" n="10"> 4 6 14 14 12 4 0 0 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SPECIES">
+        <Counts totalFreq="54"/>
+        <Array type="int" n="3"> 0 49 5</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <SimplePredicate field="PETALWID" operator="lessThan" value="17.5"/>
+     <ScoreDistribution value="setosa" recordCount="0"/>
+     <ScoreDistribution value="versicolor" recordCount="49"/>
+     <ScoreDistribution value="virginica" recordCount="5"/>
+    </Node>
+    <Node score="virginica" recordCount="46">
+     <Extension>
+      <Partition name="1.2.2" size="46">
+       <PartitionFieldStats field="PETALLEN">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 0 0 0 0 0 14 17 10 5</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="PETALWID">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 0 0 0 0 0 0 23 9 14</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEPALLEN">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 0 0 2 6 13 11 4 4 6</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SEPALWID">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="10"> 0 0 8 9 15 11 1 2 0 0</Array>
+       </PartitionFieldStats>
+       <PartitionFieldStats field="SPECIES">
+        <Counts totalFreq="46"/>
+        <Array type="int" n="3"> 0 1 45</Array>
+       </PartitionFieldStats>
+      </Partition>
+     </Extension>
+     <True/>
+     <ScoreDistribution value="setosa" recordCount="0"/>
+     <ScoreDistribution value="versicolor" recordCount="1"/>
+     <ScoreDistribution value="virginica" recordCount="45"/>
+    </Node>
+   </Node>
+  </Node>
+ </TreeModel>
+</PMML>

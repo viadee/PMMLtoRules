@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="de.viadee.CarInsurance">
+   <rule name="Older than 25 over 340hp has medium risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="340"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="medium"};
+				</rhs>
+   </rule>
+   <rule name="Older than 65 between 188hp and 340hp has medium risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="187.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="medium"};
+				</rhs>
+   </rule>
+   <rule name="Older than 65 between 160hp and 188hp has low risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="187.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+   <rule name="Older than 25 younger than 65 in an Audi between 160hp and 340hp has low risk ">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.brand">
+               <literal-restriction evaluator="==" value="Audi"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+   <rule name="Between 60 and 65 in Mercedes with between 160hp and 340hp has meidum risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.brand">
+               <literal-restriction evaluator="==" value="Mercedes"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="60.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="medium"};
+				</rhs>
+   </rule>
+   <rule name="Between 25 and 60 in Mercedes with between 160hp and 340hp has low risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.brand">
+               <literal-restriction evaluator="==" value="Mercedes"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="60.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+   <rule name="Between 25 and 65 in Volkswagen with between 160hp and 340hp has low risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="340"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="64.500"/>
+            </field-constraint>
+            <field-constraint field-name="car.brand">
+               <literal-restriction evaluator="==" value="Volkswagen"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+   <rule name="Under 25 over 160hp has high risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="25.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="high"};
+				</rhs>
+   </rule>
+   <rule name="Over 25 between 60hp and 160hp has low risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="60"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&gt;" value="25.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+   <rule name="Under 25 between 60hp and 160hp has medium risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&gt;" value="60"/>
+            </field-constraint>
+            <field-constraint field-name="customer.age">
+               <literal-restriction evaluator="&lt;=" value="25.500"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="medium"};
+				</rhs>
+   </rule>
+   <rule name="Under 60hp has low risk">
+      <rule-attribute name="lock-on-active" value="true"/>
+      <lhs>
+         <pattern object-type="variable :Ownership">
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="160"/>
+            </field-constraint>
+            <field-constraint field-name="car.hp">
+               <literal-restriction evaluator="&lt;=" value="60"/>
+            </field-constraint>
+         </pattern>
+      </lhs>
+      <rhs>modify(variable) {risk="low"};
+				</rhs>
+   </rule>
+</package>

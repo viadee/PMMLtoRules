@@ -1,0 +1,2371 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<PMML version="2.1">
+  <Header copyright="Copyright IBM Corp. 2002, 2004 All Rights Reserved">
+    <Application name="IBM DB2 Intelligent Miner" version="8.2"/>
+    <Timestamp>2004-11-15 16:24:31</Timestamp>
+  </Header>
+  <MiningBuildTask>
+    <Extension>&lt;?xml version="1.0" encoding="iso-8859-15" ?> &lt;DataMining>&lt;MiningTask trainData="trainData">&lt;MiningData name="trainData" tableName="EXPLOIT_TRAIN">&lt;Column alias="RECORDID" name="RECORDID" sqlType="INTEGER"/>&lt;Column alias="SGL_VAL" name="SGL_VAL" sqlType="CHAR"/>&lt;Column alias="BI_VAL" name="BI_VAL" sqlType="CHAR"/>&lt;Column alias="TRI_VAL" name="TRI_VAL" sqlType="CHAR"/>&lt;Column alias="TRAIL_BLANKS" name="TRAIL_BLANKS" sqlType="CHAR"/>&lt;Column alias="LEAD_BLANKS" name="LEAD_BLANKS" sqlType="CHAR"/>&lt;Column alias="EMPTY_STR" name="EMPTY_STR" sqlType="CHAR"/>&lt;Column alias="CAP_STR" name="CAP_STR" sqlType="CHAR"/>&lt;Column alias="INT100" name="INT100" sqlType="SMALLINT"/>&lt;Column alias="INT_0_1" name="INT_0_1" sqlType="SMALLINT"/>&lt;Column alias="CONST1" name="CONST1" sqlType="SMALLINT"/>&lt;Column alias="NORM_0_1" name="NORM_0_1" sqlType="DECIMAL"/>&lt;Column alias="NORM100" name="NORM100" sqlType="DECIMAL"/>&lt;Column alias="TARGET_BI" name="TARGET_BI" sqlType="CHAR"/>&lt;Column alias="TARGET_TRI" name="TARGET_TRI" sqlType="CHAR"/>&lt;Column alias="TARGET_INT100" name="TARGET_INT100" sqlType="SMALLINT"/>&lt;Column alias="TARGET_0_1" name="TARGET_0_1" sqlType="SMALLINT"/>&lt;Column alias="TARGET_CONT" name="TARGET_CONT" sqlType="DECIMAL"/>&lt;/MiningData>&lt;MiningSettings powerOptions="-buf 1024">&lt;LogicalDataSpec>&lt;MiningField name="SGL_VAL" type="categorical"/>&lt;MiningField name="BI_VAL" type="categorical"/>&lt;MiningField name="TRI_VAL" type="categorical"/>&lt;MiningField name="TRAIL_BLANKS" type="categorical"/>&lt;MiningField name="LEAD_BLANKS" type="categorical"/>&lt;MiningField name="EMPTY_STR" type="categorical"/>&lt;MiningField name="CAP_STR" type="categorical"/>&lt;MiningField name="INT100" type="numerical"/>&lt;MiningField name="INT_0_1" type="numerical"/>&lt;MiningField name="CONST1" type="numerical"/>&lt;MiningField name="NORM_0_1" type="numerical"/>&lt;MiningField name="NORM100" type="numerical"/>&lt;MiningField name="TARGET_BI" type="categorical"/>&lt;MiningField name="TARGET_TRI" type="categorical"/>&lt;MiningField name="TARGET_INT100" type="numerical"/>&lt;MiningField name="TARGET_0_1" type="numerical"/>&lt;MiningField name="TARGET_CONT" type="numerical"/>&lt;/LogicalDataSpec>&lt;ClasSettings/>&lt;FieldUsageEntry field="TARGET_BI" usageType="target"/>&lt;FieldUsageEntry field="SGL_VAL" usageType="active"/>&lt;FieldUsageEntry field="BI_VAL" usageType="active"/>&lt;FieldUsageEntry field="TRI_VAL" usageType="active"/>&lt;FieldUsageEntry field="TRAIL_BLANKS" usageType="active"/>&lt;FieldUsageEntry field="LEAD_BLANKS" usageType="active"/>&lt;FieldUsageEntry field="EMPTY_STR" usageType="active"/>&lt;FieldUsageEntry field="CAP_STR" usageType="active"/>&lt;FieldUsageEntry field="INT100" usageType="active"/>&lt;FieldUsageEntry field="INT_0_1" usageType="active"/>&lt;FieldUsageEntry field="CONST1" usageType="active"/>&lt;FieldUsageEntry field="NORM_0_1" usageType="active"/>&lt;FieldUsageEntry field="NORM100" usageType="active"/>&lt;FieldUsageEntry field="TARGET_TRI" usageType="active"/>&lt;FieldUsageEntry field="TARGET_INT100" usageType="active"/>&lt;FieldUsageEntry field="TARGET_0_1" usageType="active"/>&lt;FieldUsageEntry field="TARGET_CONT" usageType="active"/>&lt;/MiningSettings>&lt;/MiningTask>&lt;/DataMining></Extension>
+  </MiningBuildTask>
+  <DataDictionary numberOfFields="17">
+    <DataField name="SGL_VAL" displayName="SGL_VAL" optype="categorical">
+      <Value value="A"/>
+    </DataField>
+    <DataField name="BI_VAL" displayName="BI_VAL" optype="categorical">
+      <Value value="A"/>
+      <Value value="B"/>
+    </DataField>
+    <DataField name="TRI_VAL" displayName="TRI_VAL" optype="categorical">
+      <Value value="A"/>
+      <Value value="B"/>
+      <Value value="C"/>
+    </DataField>
+    <DataField name="TRAIL_BLANKS" displayName="TRAIL_BLANKS" optype="categorical">
+      <Value value="A"/>
+    </DataField>
+    <DataField name="LEAD_BLANKS" displayName="LEAD_BLANKS" optype="categorical">
+      <Value value=" A"/>
+      <Value value="  A"/>
+      <Value value="A"/>
+    </DataField>
+    <DataField name="EMPTY_STR" displayName="EMPTY_STR" optype="categorical">
+      <Value value="A"/>
+      <Value value="B"/>
+      <Value value="C"/>
+      <Value value=""/>
+    </DataField>
+    <DataField name="CAP_STR" displayName="CAP_STR" optype="categorical">
+      <Value value="A"/>
+      <Value value="a"/>
+    </DataField>
+    <DataField name="TARGET_BI" displayName="TARGET_BI" optype="categorical">
+      <Value value="a"/>
+      <Value value="b"/>
+    </DataField>
+    <DataField name="TARGET_TRI" displayName="TARGET_TRI" optype="categorical">
+      <Value value="a"/>
+      <Value value="b"/>
+      <Value value="c"/>
+    </DataField>
+    <DataField name="INT100" displayName="INT100" optype="continuous"/>
+    <DataField name="INT_0_1" displayName="INT_0_1" optype="continuous"/>
+    <DataField name="CONST1" displayName="CONST1" optype="continuous"/>
+    <DataField name="NORM_0_1" displayName="NORM_0_1" optype="continuous"/>
+    <DataField name="NORM100" displayName="NORM100" optype="continuous"/>
+    <DataField name="TARGET_INT100" displayName="TARGET_INT100" optype="continuous"/>
+    <DataField name="TARGET_0_1" displayName="TARGET_0_1" optype="continuous"/>
+    <DataField name="TARGET_CONT" displayName="TARGET_CONT" optype="continuous"/>
+  </DataDictionary>
+  <TreeModel modelName="prekernel" functionName="classification" splitCharacteristic="binarySplit" x-costRate="100">
+    <Extension>
+      <X-TreeModelExtension>
+        <X-ConfusionMatrix>
+          <Matrix>
+            <Array type="int" n="2"> 283 19</Array>
+            <Array type="int" n="2"> 145 53</Array>
+          </Matrix>
+        </X-ConfusionMatrix>
+      </X-TreeModelExtension>
+    </Extension>
+    <Extension name="Quality">
+      <X-Quality x-model="prekernel" x-targetField="TARGET_BI" x-dataUsage="training" x-dataName="RASPL.EXPLOIT_TRAIN" x-modelQuality="0.459553414944143">
+        <X-LiftData x-targetFieldValue="a" x-rankingQuality="0.247106829888287">
+          <X-LiftGraph x-usage="model">
+            <X-XCoordinates>
+              <Array type="int" n="6"> 53 390 428 468 492 500</Array>
+            </X-XCoordinates>
+            <X-YCoordinates>
+              <Array type="int" n="6"> 39 221 23 13 5 1</Array>
+            </X-YCoordinates>
+            <X-BoundaryValues>
+              <Array type="real" n="6"> 0.735849056603774 0.655786350148368 0.605263157894737 0.325 0.208333333333333 0.125</Array>
+            </X-BoundaryValues>
+          </X-LiftGraph>
+        </X-LiftData>
+        <X-LiftData x-targetFieldValue="b" x-rankingQuality="0.247106829888287">
+          <X-LiftGraph x-usage="model">
+            <X-XCoordinates>
+              <Array type="int" n="6"> 8 32 72 110 447 500</Array>
+            </X-XCoordinates>
+            <X-YCoordinates>
+              <Array type="int" n="6"> 7 19 27 15 116 14</Array>
+            </X-YCoordinates>
+            <X-BoundaryValues>
+              <Array type="real" n="6"> 0.875 0.791666666666667 0.675 0.394736842105263 0.344213649851632 0.264150943396226</Array>
+            </X-BoundaryValues>
+          </X-LiftGraph>
+        </X-LiftData>
+        <X-AccuracyData x-targetFieldValue="a" x-accuracyQuality="0.937086092715232"/>
+        <X-AccuracyData x-targetFieldValue="b" x-accuracyQuality="0.267676767676768"/>
+        <X-ConfusionMatrix>
+          <Matrix>
+            <Array type="int" n="2"> 283 19</Array>
+            <Array type="int" n="2"> 145 53</Array>
+          </Matrix>
+        </X-ConfusionMatrix>
+      </X-Quality>
+    </Extension>
+    <Extension name="X-Correlations">
+      <X-Correlations type="linear">
+        <Array n="17" type="string"> "BI_VAL" "CAP_STR" "CONST1" "EMPTY_STR" "INT100" "INT_0_1" "LEAD_BLANKS" "NORM100" "NORM_0_1" "SGL_VAL" "TARGET_0_1" "TARGET_BI" "TARGET_CONT" "TARGET_INT100" "TARGET_TRI" "TRAIL_BLANKS" "TRI_VAL"</Array>
+        <Matrix kind="symmetric" nbRows="17" nbCols="17" diagDefault="1" offDiagDefault="-99"/>
+      </X-Correlations>
+    </Extension>
+    <MiningSchema>
+      <MiningField usageType="active" name="INT100" x-importance="0.144032816472003"/>
+      <MiningField usageType="active" name="NORM100" x-importance="0.179878244256916"/>
+      <MiningField usageType="active" name="TARGET_CONT" x-importance="0.454512260268753"/>
+      <MiningField usageType="active" name="EMPTY_STR" x-importance="0.221576679002327"/>
+      <MiningField usageType="supplementary" name="INT_0_1"/>
+      <MiningField usageType="supplementary" name="CONST1"/>
+      <MiningField usageType="supplementary" name="NORM_0_1"/>
+      <MiningField usageType="supplementary" name="TARGET_INT100"/>
+      <MiningField usageType="supplementary" name="TARGET_0_1"/>
+      <MiningField usageType="supplementary" name="SGL_VAL"/>
+      <MiningField usageType="supplementary" name="BI_VAL"/>
+      <MiningField usageType="supplementary" name="TRI_VAL"/>
+      <MiningField usageType="supplementary" name="TRAIL_BLANKS"/>
+      <MiningField usageType="supplementary" name="LEAD_BLANKS"/>
+      <MiningField usageType="supplementary" name="CAP_STR"/>
+      <MiningField usageType="supplementary" name="TARGET_TRI"/>
+      <MiningField usageType="predicted" name="TARGET_BI"/>
+    </MiningSchema>
+    <ModelStats>
+      <Extension>
+        <Partition name="a" size="302">
+          <PartitionFieldStats field="INT100">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="5.40397357940674" minimum="-98" maximum="100"/>
+            <Array type="int" n="10"> 25 31 27 36 24 26 27 29 44 33</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="INT_0_1">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="0.453642398118973" minimum="0" maximum="1"/>
+            <Array type="int" n="10"> 165 0 0 0 0 0 0 0 0 137</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CONST1">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="1" minimum="1" maximum="1"/>
+            <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 302</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM_0_1">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="0.50134414434433" minimum="0.00943202991038561" maximum="0.999448895454407"/>
+            <Array type="int" n="10"> 28 31 31 32 33 26 28 36 35 22</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM100">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="1.88828372955322" minimum="-49.3800888061523" maximum="49.8461303710938"/>
+            <Array type="int" n="10"> 28 28 28 33 20 35 28 35 36 31</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_INT100">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="-0.761589407920837" minimum="-100" maximum="99"/>
+            <Array type="int" n="10"> 27 37 26 33 29 23 42 31 25 29</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_0_1">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="0.470198661088943" minimum="0" maximum="1"/>
+            <Array type="int" n="10"> 160 0 0 0 0 0 0 0 0 142</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_CONT">
+            <Counts totalFreq="302"/>
+            <NumericInfo mean="0.337104797363281" minimum="-49.8790817260742" maximum="49.8103446960449"/>
+            <Array type="int" n="10"> 30 24 25 35 31 40 30 32 22 33</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="SGL_VAL">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="1"> 302</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="BI_VAL">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="2"> 129 173</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRI_VAL">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="3"> 144 98 60</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRAIL_BLANKS">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="1"> 302</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="LEAD_BLANKS">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="3"> 66 134 102</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="EMPTY_STR">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="4"> 127 83 49 43</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CAP_STR">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="2"> 206 96</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_TRI">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="3"> 90 110 102</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_BI">
+            <Counts totalFreq="302"/>
+            <Array type="int" n="2"> 302 0</Array>
+          </PartitionFieldStats>
+        </Partition>
+        <Partition name="b" size="198">
+          <PartitionFieldStats field="INT100">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="4.63131332397461" minimum="-99" maximum="99"/>
+            <Array type="int" n="10"> 16 12 22 25 24 18 21 12 28 20</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="INT_0_1">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="0.505050480365753" minimum="0" maximum="1"/>
+            <Array type="int" n="10"> 98 0 0 0 0 0 0 0 0 100</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CONST1">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="1" minimum="1" maximum="1"/>
+            <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 198</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM_0_1">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="0.479554504156113" minimum="0.00435425713658333" maximum="0.997123003005981"/>
+            <Array type="int" n="10"> 27 19 17 25 15 18 24 21 15 17</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM100">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="-0.89887273311615" minimum="-49.9317321777344" maximum="49.8930244445801"/>
+            <Array type="int" n="10"> 26 19 24 18 19 16 15 11 21 29</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_INT100">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="-0.878787875175476" minimum="-99" maximum="98"/>
+            <Array type="int" n="10"> 25 18 17 16 25 18 19 21 21 18</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_0_1">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="0.494949489831924" minimum="0" maximum="1"/>
+            <Array type="int" n="10"> 100 0 0 0 0 0 0 0 0 98</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_CONT">
+            <Counts totalFreq="198"/>
+            <NumericInfo mean="-4.70518159866333" minimum="-49.9139556884766" maximum="49.914119720459"/>
+            <Array type="int" n="10"> 27 20 23 22 23 25 12 14 13 19</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="SGL_VAL">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="1"> 198</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="BI_VAL">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="2"> 106 92</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRI_VAL">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="3"> 86 66 46</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRAIL_BLANKS">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="1"> 198</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="LEAD_BLANKS">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="3"> 44 93 61</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="EMPTY_STR">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="4"> 69 53 42 34</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CAP_STR">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="2"> 119 79</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_TRI">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="3"> 66 75 57</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_BI">
+            <Counts totalFreq="198"/>
+            <Array type="int" n="2"> 0 198</Array>
+          </PartitionFieldStats>
+        </Partition>
+      </Extension>
+      <UnivariateStats field="INT100">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="5.09800004959106" minimum="-99" maximum="100"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="-99" rightMargin="-79.1000003814697"/>
+          <Interval closure="openClosed" leftMargin="-79.0999984741211" rightMargin="-59.1999988555908"/>
+          <Interval closure="openClosed" leftMargin="-59.1999969482422" rightMargin="-39.2999973297119"/>
+          <Interval closure="openClosed" leftMargin="-39.2999954223633" rightMargin="-19.399995803833"/>
+          <Interval closure="openClosed" leftMargin="-19.399995803833" rightMargin="0.500003814697266"/>
+          <Interval closure="openClosed" leftMargin="0.500003814697266" rightMargin="20.4000034332275"/>
+          <Interval closure="openClosed" leftMargin="20.4000034332275" rightMargin="40.3000030517578"/>
+          <Interval closure="openClosed" leftMargin="40.3000030517578" rightMargin="60.2000026702881"/>
+          <Interval closure="openClosed" leftMargin="60.2000045776367" rightMargin="80.100004196167"/>
+          <Interval closure="openClosed" leftMargin="80.1000061035156" rightMargin="100.000005722046"/>
+          <Array type="int" n="10"> 41 43 49 61 48 44 48 41 72 53</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="INT_0_1">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="0.474000006914139" minimum="0" maximum="1"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="0" rightMargin="0.100000001490116"/>
+          <Interval closure="openClosed" leftMargin="0.100000001490116" rightMargin="0.200000002980232"/>
+          <Interval closure="openClosed" leftMargin="0.200000002980232" rightMargin="0.300000004470348"/>
+          <Interval closure="openClosed" leftMargin="0.300000011920929" rightMargin="0.400000013411045"/>
+          <Interval closure="openClosed" leftMargin="0.400000005960464" rightMargin="0.500000007450581"/>
+          <Interval closure="openClosed" leftMargin="0.5" rightMargin="0.600000001490116"/>
+          <Interval closure="openClosed" leftMargin="0.600000023841858" rightMargin="0.700000025331974"/>
+          <Interval closure="openClosed" leftMargin="0.700000047683716" rightMargin="0.800000049173832"/>
+          <Interval closure="openClosed" leftMargin="0.800000071525574" rightMargin="0.90000007301569"/>
+          <Interval closure="openClosed" leftMargin="0.900000095367432" rightMargin="1.00000009685755"/>
+          <Array type="int" n="10"> 263 0 0 0 0 0 0 0 0 237</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="CONST1">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="1" minimum="1" maximum="1"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Interval closure="openClosed" leftMargin="1" rightMargin="1"/>
+          <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 500</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="NORM_0_1">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="0.492715448141098" minimum="0.00435425713658333" maximum="0.999448895454407"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="0.00435425713658333" rightMargin="0.103863719850779"/>
+          <Interval closure="openClosed" leftMargin="0.103863716125488" rightMargin="0.203373178839684"/>
+          <Interval closure="openClosed" leftMargin="0.203373178839684" rightMargin="0.302882641553879"/>
+          <Interval closure="openClosed" leftMargin="0.302882641553879" rightMargin="0.402392104268074"/>
+          <Interval closure="openClosed" leftMargin="0.402392089366913" rightMargin="0.501901552081108"/>
+          <Interval closure="openClosed" leftMargin="0.501901566982269" rightMargin="0.601411029696465"/>
+          <Interval closure="openClosed" leftMargin="0.601411044597626" rightMargin="0.700920507311821"/>
+          <Interval closure="openClosed" leftMargin="0.700920522212982" rightMargin="0.800429984927177"/>
+          <Interval closure="openClosed" leftMargin="0.800429999828339" rightMargin="0.899939462542534"/>
+          <Interval closure="openClosed" leftMargin="0.899939477443695" rightMargin="0.99944894015789"/>
+          <Array type="int" n="10"> 55 50 48 57 48 44 52 57 50 39</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="NORM100">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="0.784569799900055" minimum="-49.9317321777344" maximum="49.8930244445801"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="-49.9317321777344" rightMargin="-39.9492568969727"/>
+          <Interval closure="openClosed" leftMargin="-39.9492568969727" rightMargin="-29.9667816162109"/>
+          <Interval closure="openClosed" leftMargin="-29.9667816162109" rightMargin="-19.9843063354492"/>
+          <Interval closure="openClosed" leftMargin="-19.9843063354492" rightMargin="-10.0018310546875"/>
+          <Interval closure="openClosed" leftMargin="-10.0018310546875" rightMargin="-0.0193557739257812"/>
+          <Interval closure="openClosed" leftMargin="-0.0193557739257812" rightMargin="9.96311950683594"/>
+          <Interval closure="openClosed" leftMargin="9.96311950683594" rightMargin="19.9455947875977"/>
+          <Interval closure="openClosed" leftMargin="19.9455947875977" rightMargin="29.9280700683594"/>
+          <Interval closure="openClosed" leftMargin="29.9280700683594" rightMargin="39.9105453491211"/>
+          <Interval closure="openClosed" leftMargin="39.9105453491211" rightMargin="49.8930206298828"/>
+          <Array type="int" n="10"> 54 47 52 51 39 51 43 46 57 60</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="TARGET_INT100">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="-0.808000028133392" minimum="-100" maximum="99"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="-100" rightMargin="-80.1000003814697"/>
+          <Interval closure="openClosed" leftMargin="-80.0999984741211" rightMargin="-60.1999988555908"/>
+          <Interval closure="openClosed" leftMargin="-60.1999969482422" rightMargin="-40.2999973297119"/>
+          <Interval closure="openClosed" leftMargin="-40.2999954223633" rightMargin="-20.399995803833"/>
+          <Interval closure="openClosed" leftMargin="-20.399995803833" rightMargin="-0.499996185302734"/>
+          <Interval closure="openClosed" leftMargin="-0.499996185302734" rightMargin="19.4000034332275"/>
+          <Interval closure="openClosed" leftMargin="19.4000034332275" rightMargin="39.3000030517578"/>
+          <Interval closure="openClosed" leftMargin="39.3000030517578" rightMargin="59.2000026702881"/>
+          <Interval closure="openClosed" leftMargin="59.2000045776367" rightMargin="79.100004196167"/>
+          <Interval closure="openClosed" leftMargin="79.1000061035156" rightMargin="99.0000057220459"/>
+          <Array type="int" n="10"> 52 55 43 49 54 41 61 52 46 47</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="TARGET_0_1">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="0.479999989271164" minimum="0" maximum="1"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="0" rightMargin="0.100000001490116"/>
+          <Interval closure="openClosed" leftMargin="0.100000001490116" rightMargin="0.200000002980232"/>
+          <Interval closure="openClosed" leftMargin="0.200000002980232" rightMargin="0.300000004470348"/>
+          <Interval closure="openClosed" leftMargin="0.300000011920929" rightMargin="0.400000013411045"/>
+          <Interval closure="openClosed" leftMargin="0.400000005960464" rightMargin="0.500000007450581"/>
+          <Interval closure="openClosed" leftMargin="0.5" rightMargin="0.600000001490116"/>
+          <Interval closure="openClosed" leftMargin="0.600000023841858" rightMargin="0.700000025331974"/>
+          <Interval closure="openClosed" leftMargin="0.700000047683716" rightMargin="0.800000049173832"/>
+          <Interval closure="openClosed" leftMargin="0.800000071525574" rightMargin="0.90000007301569"/>
+          <Interval closure="openClosed" leftMargin="0.900000095367432" rightMargin="1.00000009685755"/>
+          <Array type="int" n="10"> 260 0 0 0 0 0 0 0 0 240</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="TARGET_CONT">
+        <Counts totalFreq="500"/>
+        <NumericInfo mean="-1.65964066982269" minimum="-49.9139556884766" maximum="49.914119720459"/>
+        <ContStats>
+          <Interval closure="openClosed" leftMargin="-49.9139556884766" rightMargin="-39.9311485290527"/>
+          <Interval closure="openClosed" leftMargin="-39.9311485290527" rightMargin="-29.9483413696289"/>
+          <Interval closure="openClosed" leftMargin="-29.9483413696289" rightMargin="-19.9655342102051"/>
+          <Interval closure="openClosed" leftMargin="-19.9655342102051" rightMargin="-9.98272705078125"/>
+          <Interval closure="openClosed" leftMargin="-9.98272705078125" rightMargin="8.0108642578125e-05"/>
+          <Interval closure="openClosed" leftMargin="8.0108642578125e-05" rightMargin="9.98288726806641"/>
+          <Interval closure="openClosed" leftMargin="9.98288726806641" rightMargin="19.9656944274902"/>
+          <Interval closure="openClosed" leftMargin="19.9656944274902" rightMargin="29.9485015869141"/>
+          <Interval closure="openClosed" leftMargin="29.9485015869141" rightMargin="39.9313087463379"/>
+          <Interval closure="openClosed" leftMargin="39.9313087463379" rightMargin="49.9141159057617"/>
+          <Array type="int" n="10"> 57 44 48 57 54 65 42 46 35 52</Array>
+        </ContStats>
+      </UnivariateStats>
+      <UnivariateStats field="SGL_VAL">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="1"> 500</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="BI_VAL">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="2"> 235 265</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="TRI_VAL">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="3"> 230 164 106</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="TRAIL_BLANKS">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="1"> 500</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="LEAD_BLANKS">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="3"> 110 227 163</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="EMPTY_STR">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="4"> 196 136 91 77</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="CAP_STR">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="2"> 325 175</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="TARGET_TRI">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="3"> 156 185 159</Array>
+        </DiscrStats>
+      </UnivariateStats>
+      <UnivariateStats field="TARGET_BI">
+        <Counts totalFreq="500"/>
+        <DiscrStats>
+          <Array type="int" n="2"> 302 198</Array>
+        </DiscrStats>
+      </UnivariateStats>
+    </ModelStats>
+    <Node score="a" recordCount="500">
+      <Extension>
+        <Partition name="1" size="500">
+          <PartitionFieldStats field="INT100">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 41 43 49 61 48 44 48 41 72 53</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="INT_0_1">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 263 0 0 0 0 0 0 0 0 237</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CONST1">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 500</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM_0_1">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 55 50 48 57 48 44 52 57 50 39</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="NORM100">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 54 47 52 51 39 51 43 46 57 60</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_INT100">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 52 55 43 49 54 41 61 52 46 47</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_0_1">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 260 0 0 0 0 0 0 0 0 240</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_CONT">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="10"> 57 44 48 57 54 65 42 46 35 52</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="SGL_VAL">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="1"> 500</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="BI_VAL">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="2"> 235 265</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRI_VAL">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="3"> 230 164 106</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TRAIL_BLANKS">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="1"> 500</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="LEAD_BLANKS">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="3"> 110 227 163</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="EMPTY_STR">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="4"> 196 136 91 77</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="CAP_STR">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="2"> 325 175</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_TRI">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="3"> 156 185 159</Array>
+          </PartitionFieldStats>
+          <PartitionFieldStats field="TARGET_BI">
+            <Counts totalFreq="500"/>
+            <Array type="int" n="2"> 302 198</Array>
+          </PartitionFieldStats>
+        </Partition>
+      </Extension>
+      <True/>
+      <ScoreDistribution recordCount="302" value="a"/>
+      <ScoreDistribution recordCount="198" value="b"/>
+      <Node score="b" x-prunedByAlgorithm="yes" recordCount="8">
+        <Extension>
+          <Partition name="1.1" size="8">
+            <PartitionFieldStats field="INT100">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 0 0 0 2 2 0 1 0 1 2</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="INT_0_1">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 6 0 0 0 0 0 0 0 0 2</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="CONST1">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 8</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="NORM_0_1">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 0 1 0 1 2 3 0 1 0 0</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="NORM100">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 8 0 0 0 0 0 0 0 0 0</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_INT100">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 1 0 0 2 1 0 2 0 0 2</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_0_1">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 3 0 0 0 0 0 0 0 0 5</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_CONT">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="10"> 0 0 0 3 1 2 0 1 1 0</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="SGL_VAL">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="1"> 8</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="BI_VAL">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="2"> 5 3</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TRI_VAL">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="3"> 2 4 2</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TRAIL_BLANKS">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="1"> 8</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="LEAD_BLANKS">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="3"> 3 3 2</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="EMPTY_STR">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="4"> 2 3 2 1</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="CAP_STR">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="2"> 4 4</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_TRI">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="3"> 2 5 1</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_BI">
+              <Counts totalFreq="8"/>
+              <Array type="int" n="2"> 1 7</Array>
+            </PartitionFieldStats>
+          </Partition>
+        </Extension>
+        <SimplePredicate field="NORM100" operator="lessThan" value="-48.9480323791504"/>
+        <ScoreDistribution recordCount="1" value="a"/>
+        <ScoreDistribution recordCount="7" value="b"/>
+        <Extension name="prunedNodes">
+          <Node score="b" recordCount="7">
+            <SimplePredicate field="INT100" operator="lessThan" value="93.5"/>
+            <ScoreDistribution recordCount="0" value="a"/>
+            <ScoreDistribution recordCount="7" value="b"/>
+          </Node>
+          <Node score="a" recordCount="1">
+            <True/>
+            <ScoreDistribution recordCount="1" value="a"/>
+            <ScoreDistribution recordCount="0" value="b"/>
+          </Node>
+        </Extension>
+      </Node>
+      <Node score="a" recordCount="492">
+        <Extension>
+          <Partition name="1.2" size="492">
+            <PartitionFieldStats field="INT100">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 41 43 49 59 46 44 47 41 71 51</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="INT_0_1">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 257 0 0 0 0 0 0 0 0 235</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="CONST1">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 492</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="NORM_0_1">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 55 49 48 56 46 41 52 56 50 39</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="NORM100">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 46 47 52 51 39 51 43 46 57 60</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_INT100">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 51 55 43 47 53 41 59 52 46 45</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_0_1">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 257 0 0 0 0 0 0 0 0 235</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_CONT">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="10"> 57 44 48 54 53 63 42 45 34 52</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="SGL_VAL">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="1"> 492</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="BI_VAL">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="2"> 230 262</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TRI_VAL">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="3"> 228 160 104</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TRAIL_BLANKS">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="1"> 492</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="LEAD_BLANKS">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="3"> 107 224 161</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="EMPTY_STR">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="4"> 194 133 89 76</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="CAP_STR">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="2"> 321 171</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_TRI">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="3"> 154 180 158</Array>
+            </PartitionFieldStats>
+            <PartitionFieldStats field="TARGET_BI">
+              <Counts totalFreq="492"/>
+              <Array type="int" n="2"> 301 191</Array>
+            </PartitionFieldStats>
+          </Partition>
+        </Extension>
+        <True/>
+        <ScoreDistribution recordCount="301" value="a"/>
+        <ScoreDistribution recordCount="191" value="b"/>
+        <Node score="a" recordCount="155">
+          <Extension>
+            <Partition name="1.2.1" size="155">
+              <PartitionFieldStats field="INT100">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 10 14 16 21 14 13 16 10 26 15</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="INT_0_1">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 83 0 0 0 0 0 0 0 0 72</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="CONST1">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 155</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="NORM_0_1">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 21 16 18 19 12 8 17 14 16 14</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="NORM100">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 8 17 22 15 9 20 14 12 14 24</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_INT100">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 16 17 17 18 19 12 14 11 14 17</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_0_1">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 88 0 0 0 0 0 0 0 0 67</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_CONT">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="10"> 57 44 48 6 0 0 0 0 0 0</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="SGL_VAL">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="1"> 155</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="BI_VAL">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="2"> 81 74</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TRI_VAL">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="3"> 78 44 33</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TRAIL_BLANKS">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="1"> 155</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="LEAD_BLANKS">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="3"> 29 73 53</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="EMPTY_STR">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="4"> 63 39 25 28</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="CAP_STR">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="2"> 108 47</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_TRI">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="3"> 42 62 51</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_BI">
+                <Counts totalFreq="155"/>
+                <Array type="int" n="2"> 80 75</Array>
+              </PartitionFieldStats>
+            </Partition>
+          </Extension>
+          <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-18.8380794525146"/>
+          <ScoreDistribution recordCount="80" value="a"/>
+          <ScoreDistribution recordCount="75" value="b"/>
+          <Node score="a" recordCount="131">
+            <Extension>
+              <Partition name="1.2.1.1" size="131">
+                <PartitionFieldStats field="INT100">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 5 12 12 19 11 12 15 9 24 12</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="INT_0_1">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 70 0 0 0 0 0 0 0 0 61</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="CONST1">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 131</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="NORM_0_1">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 18 15 13 15 11 7 14 12 14 12</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="NORM100">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 8 15 16 12 7 18 11 11 11 22</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_INT100">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 13 14 15 17 14 11 12 10 10 15</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_0_1">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 69 0 0 0 0 0 0 0 0 62</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_CONT">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="10"> 57 44 30 0 0 0 0 0 0 0</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="SGL_VAL">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="1"> 131</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="BI_VAL">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="2"> 69 62</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TRI_VAL">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="3"> 66 36 29</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TRAIL_BLANKS">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="1"> 131</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="LEAD_BLANKS">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="3"> 26 64 41</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="EMPTY_STR">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="4"> 53 32 22 24</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="CAP_STR">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="2"> 91 40</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_TRI">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="3"> 33 51 47</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_BI">
+                  <Counts totalFreq="131"/>
+                  <Array type="int" n="2"> 75 56</Array>
+                </PartitionFieldStats>
+              </Partition>
+            </Extension>
+            <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-24.776762008667"/>
+            <ScoreDistribution recordCount="75" value="a"/>
+            <ScoreDistribution recordCount="56" value="b"/>
+            <Node score="a" x-prunedByAlgorithm="yes" recordCount="53">
+              <Extension>
+                <Partition name="1.2.1.1.1" size="53">
+                  <PartitionFieldStats field="INT100">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 1 4 1 7 4 6 13 5 8 4</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="INT_0_1">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 27 0 0 0 0 0 0 0 0 26</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="CONST1">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 53</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="NORM_0_1">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 8 6 5 6 5 1 7 4 7 4</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="NORM100">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 1 2 6 6 4 10 6 6 5 7</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_INT100">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 6 3 9 7 3 6 5 6 3 5</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_0_1">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 28 0 0 0 0 0 0 0 0 25</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_CONT">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="10"> 22 16 15 0 0 0 0 0 0 0</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="SGL_VAL">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="1"> 53</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="BI_VAL">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="2"> 28 25</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TRI_VAL">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="3"> 53 0 0</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TRAIL_BLANKS">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="1"> 53</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="LEAD_BLANKS">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="3"> 7 27 19</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="EMPTY_STR">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="4"> 53 0 0 0</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="CAP_STR">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="2"> 36 17</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_TRI">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="3"> 11 24 18</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_BI">
+                    <Counts totalFreq="53"/>
+                    <Array type="int" n="2"> 39 14</Array>
+                  </PartitionFieldStats>
+                </Partition>
+              </Extension>
+              <SimpleSetPredicate field="EMPTY_STR" booleanOperator="isIn">
+                <Array n="1" type="string"> "A"</Array>
+              </SimpleSetPredicate>
+              <ScoreDistribution recordCount="39" value="a"/>
+              <ScoreDistribution recordCount="14" value="b"/>
+              <Extension name="prunedNodes">
+                <Node score="a" recordCount="51">
+                  <SimplePredicate field="NORM100" operator="lessThan" value="46.8771896362305"/>
+                  <ScoreDistribution recordCount="39" value="a"/>
+                  <ScoreDistribution recordCount="12" value="b"/>
+                  <Node score="a" recordCount="50">
+                    <SimplePredicate field="INT100" operator="lessThan" value="94"/>
+                    <ScoreDistribution recordCount="39" value="a"/>
+                    <ScoreDistribution recordCount="11" value="b"/>
+                    <Node score="a" recordCount="37">
+                      <SimplePredicate field="NORM100" operator="lessThan" value="23.0975475311279"/>
+                      <ScoreDistribution recordCount="31" value="a"/>
+                      <ScoreDistribution recordCount="6" value="b"/>
+                      <Node score="a" recordCount="23">
+                        <SimplePredicate field="INT100" operator="lessThan" value="31"/>
+                        <ScoreDistribution recordCount="17" value="a"/>
+                        <ScoreDistribution recordCount="6" value="b"/>
+                        <Node score="a" recordCount="13">
+                          <SimplePredicate field="TARGET_INT100" operator="lessThan" value="-6.5"/>
+                          <ScoreDistribution recordCount="12" value="a"/>
+                          <ScoreDistribution recordCount="1" value="b"/>
+                          <Node score="a" recordCount="2">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.0844872519373894"/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="11">
+                            <True/>
+                            <ScoreDistribution recordCount="11" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="a" recordCount="10">
+                          <True/>
+                          <ScoreDistribution recordCount="5" value="a"/>
+                          <ScoreDistribution recordCount="5" value="b"/>
+                          <Node score="a" recordCount="5">
+                            <SimplePredicate field="INT100" operator="lessThan" value="8"/>
+                            <ScoreDistribution recordCount="4" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                            <Node score="a" recordCount="4">
+                              <SimplePredicate field="TARGET_INT100" operator="lessThan" value="89"/>
+                              <ScoreDistribution recordCount="4" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="1">
+                              <True/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                            </Node>
+                          </Node>
+                          <Node score="b" recordCount="5">
+                            <True/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="4" value="b"/>
+                            <Node score="a" recordCount="1">
+                              <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.135707959532738"/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="4">
+                              <True/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="4" value="b"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="14">
+                        <True/>
+                        <ScoreDistribution recordCount="14" value="a"/>
+                        <ScoreDistribution recordCount="0" value="b"/>
+                      </Node>
+                    </Node>
+                    <Node score="a" recordCount="13">
+                      <True/>
+                      <ScoreDistribution recordCount="8" value="a"/>
+                      <ScoreDistribution recordCount="5" value="b"/>
+                      <Node score="b" recordCount="2">
+                        <SimplePredicate field="NORM100" operator="lessThan" value="26.4675979614258"/>
+                        <ScoreDistribution recordCount="0" value="a"/>
+                        <ScoreDistribution recordCount="2" value="b"/>
+                      </Node>
+                      <Node score="a" recordCount="11">
+                        <True/>
+                        <ScoreDistribution recordCount="8" value="a"/>
+                        <ScoreDistribution recordCount="3" value="b"/>
+                        <Node score="b" recordCount="1">
+                          <SimplePredicate field="INT100" operator="lessThan" value="-33.5"/>
+                          <ScoreDistribution recordCount="0" value="a"/>
+                          <ScoreDistribution recordCount="1" value="b"/>
+                        </Node>
+                        <Node score="a" recordCount="10">
+                          <True/>
+                          <ScoreDistribution recordCount="8" value="a"/>
+                          <ScoreDistribution recordCount="2" value="b"/>
+                          <Node score="b" recordCount="1">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.103592306375504"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="9">
+                            <True/>
+                            <ScoreDistribution recordCount="8" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                            <Node score="a" recordCount="6">
+                              <SimplePredicate field="INT100" operator="lessThan" value="47.5"/>
+                              <ScoreDistribution recordCount="6" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="a" recordCount="3">
+                              <True/>
+                              <ScoreDistribution recordCount="2" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node score="b" recordCount="1">
+                    <True/>
+                    <ScoreDistribution recordCount="0" value="a"/>
+                    <ScoreDistribution recordCount="1" value="b"/>
+                  </Node>
+                </Node>
+                <Node score="b" recordCount="2">
+                  <True/>
+                  <ScoreDistribution recordCount="0" value="a"/>
+                  <ScoreDistribution recordCount="2" value="b"/>
+                </Node>
+              </Extension>
+            </Node>
+            <Node score="b" recordCount="78">
+              <Extension>
+                <Partition name="1.2.1.1.2" size="78">
+                  <PartitionFieldStats field="INT100">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 4 8 11 12 7 6 2 4 16 8</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="INT_0_1">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 43 0 0 0 0 0 0 0 0 35</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="CONST1">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 78</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="NORM_0_1">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 10 9 8 9 6 6 7 8 7 8</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="NORM100">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 7 13 10 6 3 8 5 5 6 15</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_INT100">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 7 11 6 10 11 5 7 4 7 10</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_0_1">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 41 0 0 0 0 0 0 0 0 37</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_CONT">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="10"> 35 28 15 0 0 0 0 0 0 0</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="SGL_VAL">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="1"> 78</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="BI_VAL">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="2"> 41 37</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TRI_VAL">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="3"> 13 36 29</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TRAIL_BLANKS">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="1"> 78</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="LEAD_BLANKS">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="3"> 19 37 22</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="EMPTY_STR">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="4"> 0 32 22 24</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="CAP_STR">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="2"> 55 23</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_TRI">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="3"> 22 27 29</Array>
+                  </PartitionFieldStats>
+                  <PartitionFieldStats field="TARGET_BI">
+                    <Counts totalFreq="78"/>
+                    <Array type="int" n="2"> 36 42</Array>
+                  </PartitionFieldStats>
+                </Partition>
+              </Extension>
+              <True/>
+              <ScoreDistribution recordCount="36" value="a"/>
+              <ScoreDistribution recordCount="42" value="b"/>
+              <Node score="b" x-prunedByAlgorithm="yes" recordCount="40">
+                <Extension>
+                  <Partition name="1.2.1.1.2.1" size="40">
+                    <PartitionFieldStats field="INT100">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 4 8 11 12 5 0 0 0 0 0</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="INT_0_1">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 19 0 0 0 0 0 0 0 0 21</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="CONST1">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 40</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="NORM_0_1">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 5 3 7 3 4 2 5 4 2 5</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="NORM100">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 3 9 5 2 3 5 3 0 1 9</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_INT100">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 3 6 3 4 5 3 5 2 5 4</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_0_1">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 19 0 0 0 0 0 0 0 0 21</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_CONT">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="10"> 20 13 7 0 0 0 0 0 0 0</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="SGL_VAL">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="1"> 40</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="BI_VAL">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="2"> 23 17</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TRI_VAL">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="3"> 6 18 16</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TRAIL_BLANKS">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="1"> 40</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="LEAD_BLANKS">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="3"> 9 19 12</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="EMPTY_STR">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="4"> 0 15 11 14</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="CAP_STR">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="2"> 29 11</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_TRI">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="3"> 12 16 12</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_BI">
+                      <Counts totalFreq="40"/>
+                      <Array type="int" n="2"> 13 27</Array>
+                    </PartitionFieldStats>
+                  </Partition>
+                </Extension>
+                <SimplePredicate field="INT100" operator="lessThan" value="-5.5"/>
+                <ScoreDistribution recordCount="13" value="a"/>
+                <ScoreDistribution recordCount="27" value="b"/>
+                <Extension name="prunedNodes">
+                  <Node score="a" recordCount="4">
+                    <SimplePredicate field="NORM100" operator="lessThan" value="-39.3203125"/>
+                    <ScoreDistribution recordCount="3" value="a"/>
+                    <ScoreDistribution recordCount="1" value="b"/>
+                  </Node>
+                  <Node score="b" recordCount="36">
+                    <True/>
+                    <ScoreDistribution recordCount="10" value="a"/>
+                    <ScoreDistribution recordCount="26" value="b"/>
+                    <Node score="b" recordCount="29">
+                      <SimplePredicate field="NORM100" operator="lessThan" value="43.9138107299805"/>
+                      <ScoreDistribution recordCount="6" value="a"/>
+                      <ScoreDistribution recordCount="23" value="b"/>
+                      <Node score="a" recordCount="3">
+                        <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-47.0247116088867"/>
+                        <ScoreDistribution recordCount="2" value="a"/>
+                        <ScoreDistribution recordCount="1" value="b"/>
+                      </Node>
+                      <Node score="b" recordCount="26">
+                        <True/>
+                        <ScoreDistribution recordCount="4" value="a"/>
+                        <ScoreDistribution recordCount="22" value="b"/>
+                        <Node score="b" recordCount="13">
+                          <SimplePredicate field="INT100" operator="lessThan" value="-43.5"/>
+                          <ScoreDistribution recordCount="4" value="a"/>
+                          <ScoreDistribution recordCount="9" value="b"/>
+                          <Node score="b" recordCount="11">
+                            <SimplePredicate field="INT100" operator="lessThan" value="-48"/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="9" value="b"/>
+                            <Node score="a" recordCount="1">
+                              <SimplePredicate field="NORM100" operator="lessThan" value="-35.5203475952148"/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="10">
+                              <True/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="9" value="b"/>
+                              <Node score="a" recordCount="2">
+                                <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.134623378515244"/>
+                                <ScoreDistribution recordCount="1" value="a"/>
+                                <ScoreDistribution recordCount="1" value="b"/>
+                              </Node>
+                              <Node score="b" recordCount="8">
+                                <True/>
+                                <ScoreDistribution recordCount="0" value="a"/>
+                                <ScoreDistribution recordCount="8" value="b"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                          <Node score="a" recordCount="2">
+                            <True/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="b" recordCount="13">
+                          <True/>
+                          <ScoreDistribution recordCount="0" value="a"/>
+                          <ScoreDistribution recordCount="13" value="b"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node score="a" recordCount="7">
+                      <True/>
+                      <ScoreDistribution recordCount="4" value="a"/>
+                      <ScoreDistribution recordCount="3" value="b"/>
+                      <Node score="b" recordCount="4">
+                        <SimplePredicate field="INT100" operator="lessThan" value="-38.5"/>
+                        <ScoreDistribution recordCount="1" value="a"/>
+                        <ScoreDistribution recordCount="3" value="b"/>
+                      </Node>
+                      <Node score="a" recordCount="3">
+                        <True/>
+                        <ScoreDistribution recordCount="3" value="a"/>
+                        <ScoreDistribution recordCount="0" value="b"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Extension>
+              </Node>
+              <Node score="a" x-prunedByAlgorithm="yes" recordCount="38">
+                <Extension>
+                  <Partition name="1.2.1.1.2.2" size="38">
+                    <PartitionFieldStats field="INT100">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 0 0 0 0 2 6 2 4 16 8</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="INT_0_1">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 24 0 0 0 0 0 0 0 0 14</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="CONST1">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 38</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="NORM_0_1">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 5 6 1 6 2 4 2 4 5 3</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="NORM100">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 4 4 5 4 0 3 2 5 5 6</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_INT100">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 4 5 3 6 6 2 2 2 2 6</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_0_1">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 22 0 0 0 0 0 0 0 0 16</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_CONT">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="10"> 15 15 8 0 0 0 0 0 0 0</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="SGL_VAL">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="1"> 38</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="BI_VAL">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="2"> 18 20</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TRI_VAL">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="3"> 7 18 13</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TRAIL_BLANKS">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="1"> 38</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="LEAD_BLANKS">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="3"> 10 18 10</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="EMPTY_STR">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="4"> 0 17 11 10</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="CAP_STR">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="2"> 26 12</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_TRI">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="3"> 10 11 17</Array>
+                    </PartitionFieldStats>
+                    <PartitionFieldStats field="TARGET_BI">
+                      <Counts totalFreq="38"/>
+                      <Array type="int" n="2"> 23 15</Array>
+                    </PartitionFieldStats>
+                  </Partition>
+                </Extension>
+                <True/>
+                <ScoreDistribution recordCount="23" value="a"/>
+                <ScoreDistribution recordCount="15" value="b"/>
+                <Extension name="prunedNodes">
+                  <Node score="a" recordCount="11">
+                    <SimplePredicate field="NORM100" operator="lessThan" value="-22.5184898376465"/>
+                    <ScoreDistribution recordCount="10" value="a"/>
+                    <ScoreDistribution recordCount="1" value="b"/>
+                    <Node score="a" recordCount="10">
+                      <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.868724942207336"/>
+                      <ScoreDistribution recordCount="10" value="a"/>
+                      <ScoreDistribution recordCount="0" value="b"/>
+                    </Node>
+                    <Node score="b" recordCount="1">
+                      <True/>
+                      <ScoreDistribution recordCount="0" value="a"/>
+                      <ScoreDistribution recordCount="1" value="b"/>
+                    </Node>
+                  </Node>
+                  <Node score="b" recordCount="27">
+                    <True/>
+                    <ScoreDistribution recordCount="13" value="a"/>
+                    <ScoreDistribution recordCount="14" value="b"/>
+                    <Node score="a" recordCount="4">
+                      <SimplePredicate field="INT100" operator="lessThan" value="9"/>
+                      <ScoreDistribution recordCount="4" value="a"/>
+                      <ScoreDistribution recordCount="0" value="b"/>
+                    </Node>
+                    <Node score="b" recordCount="23">
+                      <True/>
+                      <ScoreDistribution recordCount="9" value="a"/>
+                      <ScoreDistribution recordCount="14" value="b"/>
+                      <Node score="b" recordCount="18">
+                        <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.833198070526123"/>
+                        <ScoreDistribution recordCount="5" value="a"/>
+                        <ScoreDistribution recordCount="13" value="b"/>
+                        <Node score="b" recordCount="16">
+                          <SimplePredicate field="TARGET_INT100" operator="lessThan" value="91"/>
+                          <ScoreDistribution recordCount="3" value="a"/>
+                          <ScoreDistribution recordCount="13" value="b"/>
+                          <Node score="b" recordCount="7">
+                            <SimplePredicate field="INT100" operator="lessThan" value="64.5"/>
+                            <ScoreDistribution recordCount="3" value="a"/>
+                            <ScoreDistribution recordCount="4" value="b"/>
+                            <Node score="a" recordCount="3">
+                              <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.295822024345398"/>
+                              <ScoreDistribution recordCount="3" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="4">
+                              <True/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="4" value="b"/>
+                            </Node>
+                          </Node>
+                          <Node score="b" recordCount="9">
+                            <True/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="9" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="a" recordCount="2">
+                          <True/>
+                          <ScoreDistribution recordCount="2" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="5">
+                        <True/>
+                        <ScoreDistribution recordCount="4" value="a"/>
+                        <ScoreDistribution recordCount="1" value="b"/>
+                        <Node score="a" recordCount="4">
+                          <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-27.3757553100586"/>
+                          <ScoreDistribution recordCount="4" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                        <Node score="b" recordCount="1">
+                          <True/>
+                          <ScoreDistribution recordCount="0" value="a"/>
+                          <ScoreDistribution recordCount="1" value="b"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Extension>
+              </Node>
+            </Node>
+          </Node>
+          <Node score="b" x-prunedByAlgorithm="yes" recordCount="24">
+            <Extension>
+              <Partition name="1.2.1.2" size="24">
+                <PartitionFieldStats field="INT100">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 5 2 4 2 3 1 1 1 2 3</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="INT_0_1">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 13 0 0 0 0 0 0 0 0 11</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="CONST1">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 24</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="NORM_0_1">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 3 1 5 4 1 1 3 2 2 2</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="NORM100">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 0 2 6 3 2 2 3 1 3 2</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_INT100">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 3 3 2 1 5 1 2 1 4 2</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_0_1">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 19 0 0 0 0 0 0 0 0 5</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_CONT">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="10"> 0 0 18 6 0 0 0 0 0 0</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="SGL_VAL">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="1"> 24</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="BI_VAL">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="2"> 12 12</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TRI_VAL">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="3"> 12 8 4</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TRAIL_BLANKS">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="1"> 24</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="LEAD_BLANKS">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="3"> 3 9 12</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="EMPTY_STR">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="4"> 10 7 3 4</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="CAP_STR">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="2"> 17 7</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_TRI">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="3"> 9 11 4</Array>
+                </PartitionFieldStats>
+                <PartitionFieldStats field="TARGET_BI">
+                  <Counts totalFreq="24"/>
+                  <Array type="int" n="2"> 5 19</Array>
+                </PartitionFieldStats>
+              </Partition>
+            </Extension>
+            <True/>
+            <ScoreDistribution recordCount="5" value="a"/>
+            <ScoreDistribution recordCount="19" value="b"/>
+            <Extension name="prunedNodes">
+              <Node score="b" recordCount="12">
+                <SimpleSetPredicate field="LEAD_BLANKS" booleanOperator="isIn">
+                  <Array n="1" type="string"> "A"</Array>
+                </SimpleSetPredicate>
+                <ScoreDistribution recordCount="5" value="a"/>
+                <ScoreDistribution recordCount="7" value="b"/>
+                <Node score="b" recordCount="4">
+                  <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-23.0245342254639"/>
+                  <ScoreDistribution recordCount="0" value="a"/>
+                  <ScoreDistribution recordCount="4" value="b"/>
+                </Node>
+                <Node score="a" recordCount="8">
+                  <True/>
+                  <ScoreDistribution recordCount="5" value="a"/>
+                  <ScoreDistribution recordCount="3" value="b"/>
+                  <Node score="a" recordCount="4">
+                    <SimplePredicate field="INT100" operator="lessThan" value="-18"/>
+                    <ScoreDistribution recordCount="4" value="a"/>
+                    <ScoreDistribution recordCount="0" value="b"/>
+                  </Node>
+                  <Node score="b" recordCount="4">
+                    <True/>
+                    <ScoreDistribution recordCount="1" value="a"/>
+                    <ScoreDistribution recordCount="3" value="b"/>
+                  </Node>
+                </Node>
+              </Node>
+              <Node score="b" recordCount="12">
+                <True/>
+                <ScoreDistribution recordCount="0" value="a"/>
+                <ScoreDistribution recordCount="12" value="b"/>
+              </Node>
+            </Extension>
+          </Node>
+        </Node>
+        <Node score="a" x-prunedByAlgorithm="yes" recordCount="337">
+          <Extension>
+            <Partition name="1.2.2" size="337">
+              <PartitionFieldStats field="INT100">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 31 29 33 38 32 31 31 31 45 36</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="INT_0_1">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 174 0 0 0 0 0 0 0 0 163</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="CONST1">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 0 0 0 0 0 0 0 0 0 337</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="NORM_0_1">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 34 33 30 37 34 33 35 42 34 25</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="NORM100">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 38 30 30 36 30 31 29 34 43 36</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_INT100">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 35 38 26 29 34 29 45 41 32 28</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_0_1">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 169 0 0 0 0 0 0 0 0 168</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_CONT">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="10"> 0 0 0 48 53 63 42 45 34 52</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="SGL_VAL">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="1"> 337</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="BI_VAL">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="2"> 149 188</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TRI_VAL">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="3"> 150 116 71</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TRAIL_BLANKS">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="1"> 337</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="LEAD_BLANKS">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="3"> 78 151 108</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="EMPTY_STR">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="4"> 131 94 64 48</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="CAP_STR">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="2"> 213 124</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_TRI">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="3"> 112 118 107</Array>
+              </PartitionFieldStats>
+              <PartitionFieldStats field="TARGET_BI">
+                <Counts totalFreq="337"/>
+                <Array type="int" n="2"> 221 116</Array>
+              </PartitionFieldStats>
+            </Partition>
+          </Extension>
+          <True/>
+          <ScoreDistribution recordCount="221" value="a"/>
+          <ScoreDistribution recordCount="116" value="b"/>
+          <Extension name="prunedNodes">
+            <Node score="a" recordCount="154">
+              <SimplePredicate field="NORM100" operator="lessThan" value="-2.31647109985352"/>
+              <ScoreDistribution recordCount="90" value="a"/>
+              <ScoreDistribution recordCount="64" value="b"/>
+              <Node score="a" recordCount="6">
+                <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-16.6083717346191"/>
+                <ScoreDistribution recordCount="6" value="a"/>
+                <ScoreDistribution recordCount="0" value="b"/>
+              </Node>
+              <Node score="a" recordCount="148">
+                <True/>
+                <ScoreDistribution recordCount="84" value="a"/>
+                <ScoreDistribution recordCount="64" value="b"/>
+                <Node score="b" recordCount="4">
+                  <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-14.4524250030518"/>
+                  <ScoreDistribution recordCount="0" value="a"/>
+                  <ScoreDistribution recordCount="4" value="b"/>
+                </Node>
+                <Node score="a" recordCount="144">
+                  <True/>
+                  <ScoreDistribution recordCount="84" value="a"/>
+                  <ScoreDistribution recordCount="60" value="b"/>
+                  <Node score="b" recordCount="62">
+                    <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.464883983135223"/>
+                    <ScoreDistribution recordCount="30" value="a"/>
+                    <ScoreDistribution recordCount="32" value="b"/>
+                    <Node score="b" recordCount="42">
+                      <SimplePredicate field="INT100" operator="lessThan" value="33.5"/>
+                      <ScoreDistribution recordCount="16" value="a"/>
+                      <ScoreDistribution recordCount="26" value="b"/>
+                      <Node score="b" recordCount="15">
+                        <SimpleSetPredicate field="CAP_STR" booleanOperator="isIn">
+                          <Array n="1" type="string"> "a"</Array>
+                        </SimpleSetPredicate>
+                        <ScoreDistribution recordCount="2" value="a"/>
+                        <ScoreDistribution recordCount="13" value="b"/>
+                        <Node score="a" recordCount="2">
+                          <SimpleSetPredicate field="TRI_VAL" booleanOperator="isIn">
+                            <Array n="1" type="string"> "B"</Array>
+                          </SimpleSetPredicate>
+                          <ScoreDistribution recordCount="1" value="a"/>
+                          <ScoreDistribution recordCount="1" value="b"/>
+                        </Node>
+                        <Node score="b" recordCount="13">
+                          <True/>
+                          <ScoreDistribution recordCount="1" value="a"/>
+                          <ScoreDistribution recordCount="12" value="b"/>
+                          <Node score="b" recordCount="10">
+                            <SimplePredicate field="TARGET_INT100" operator="lessThan" value="45.5"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="10" value="b"/>
+                          </Node>
+                          <Node score="b" recordCount="3">
+                            <True/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="2" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="27">
+                        <True/>
+                        <ScoreDistribution recordCount="14" value="a"/>
+                        <ScoreDistribution recordCount="13" value="b"/>
+                        <Node score="a" recordCount="18">
+                          <SimplePredicate field="TARGET_0_1" operator="lessThan" value="0.5"/>
+                          <ScoreDistribution recordCount="12" value="a"/>
+                          <ScoreDistribution recordCount="6" value="b"/>
+                          <Node score="a" recordCount="16">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.249542653560638"/>
+                            <ScoreDistribution recordCount="12" value="a"/>
+                            <ScoreDistribution recordCount="4" value="b"/>
+                            <Node score="a" recordCount="11">
+                              <SimplePredicate field="TARGET_CONT" operator="lessThan" value="30.286693572998"/>
+                              <ScoreDistribution recordCount="10" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                              <Node score="b" recordCount="1">
+                                <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.0102765196934342"/>
+                                <ScoreDistribution recordCount="0" value="a"/>
+                                <ScoreDistribution recordCount="1" value="b"/>
+                              </Node>
+                              <Node score="a" recordCount="10">
+                                <True/>
+                                <ScoreDistribution recordCount="10" value="a"/>
+                                <ScoreDistribution recordCount="0" value="b"/>
+                              </Node>
+                            </Node>
+                            <Node score="b" recordCount="5">
+                              <True/>
+                              <ScoreDistribution recordCount="2" value="a"/>
+                              <ScoreDistribution recordCount="3" value="b"/>
+                              <Node score="b" recordCount="2">
+                                <SimplePredicate field="INT100" operator="lessThan" value="-34.5"/>
+                                <ScoreDistribution recordCount="0" value="a"/>
+                                <ScoreDistribution recordCount="2" value="b"/>
+                              </Node>
+                              <Node score="a" recordCount="3">
+                                <True/>
+                                <ScoreDistribution recordCount="2" value="a"/>
+                                <ScoreDistribution recordCount="1" value="b"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                          <Node score="b" recordCount="2">
+                            <True/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="2" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="b" recordCount="9">
+                          <True/>
+                          <ScoreDistribution recordCount="2" value="a"/>
+                          <ScoreDistribution recordCount="7" value="b"/>
+                          <Node score="b" recordCount="6">
+                            <SimplePredicate field="INT100" operator="lessThan" value="-15.5"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="6" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="3">
+                            <True/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node score="a" recordCount="20">
+                      <True/>
+                      <ScoreDistribution recordCount="14" value="a"/>
+                      <ScoreDistribution recordCount="6" value="b"/>
+                      <Node score="a" recordCount="8">
+                        <SimplePredicate field="NORM100" operator="lessThan" value="-33.5984420776367"/>
+                        <ScoreDistribution recordCount="4" value="a"/>
+                        <ScoreDistribution recordCount="4" value="b"/>
+                        <Node score="a" recordCount="3">
+                          <SimpleSetPredicate field="TRI_VAL" booleanOperator="isIn">
+                            <Array n="1" type="string"> "C"</Array>
+                          </SimpleSetPredicate>
+                          <ScoreDistribution recordCount="3" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                        <Node score="b" recordCount="5">
+                          <True/>
+                          <ScoreDistribution recordCount="1" value="a"/>
+                          <ScoreDistribution recordCount="4" value="b"/>
+                          <Node score="b" recordCount="4">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.39941793680191"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="4" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="1">
+                            <True/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="12">
+                        <True/>
+                        <ScoreDistribution recordCount="10" value="a"/>
+                        <ScoreDistribution recordCount="2" value="b"/>
+                        <Node score="a" recordCount="5">
+                          <SimplePredicate field="INT100" operator="lessThan" value="64.5"/>
+                          <ScoreDistribution recordCount="3" value="a"/>
+                          <ScoreDistribution recordCount="2" value="b"/>
+                          <Node score="a" recordCount="2">
+                            <SimplePredicate field="INT100" operator="lessThan" value="56"/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                          <Node score="b" recordCount="3">
+                            <True/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="2" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="a" recordCount="7">
+                          <True/>
+                          <ScoreDistribution recordCount="7" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node score="a" recordCount="82">
+                    <True/>
+                    <ScoreDistribution recordCount="54" value="a"/>
+                    <ScoreDistribution recordCount="28" value="b"/>
+                    <Node score="a" recordCount="29">
+                      <SimplePredicate field="INT100" operator="lessThan" value="-36.5"/>
+                      <ScoreDistribution recordCount="25" value="a"/>
+                      <ScoreDistribution recordCount="4" value="b"/>
+                      <Node score="a" recordCount="12">
+                        <SimplePredicate field="NORM100" operator="lessThan" value="-31.5874195098877"/>
+                        <ScoreDistribution recordCount="8" value="a"/>
+                        <ScoreDistribution recordCount="4" value="b"/>
+                        <Node score="a" recordCount="7">
+                          <SimpleSetPredicate field="EMPTY_STR" booleanOperator="isIn">
+                            <Array n="2" type="string"> "" "B"</Array>
+                          </SimpleSetPredicate>
+                          <ScoreDistribution recordCount="6" value="a"/>
+                          <ScoreDistribution recordCount="1" value="b"/>
+                          <Node score="a" recordCount="2">
+                            <SimpleSetPredicate field="LEAD_BLANKS" booleanOperator="isIn">
+                              <Array n="1" type="string"> "A"</Array>
+                            </SimpleSetPredicate>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="5">
+                            <True/>
+                            <ScoreDistribution recordCount="5" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="b" recordCount="5">
+                          <True/>
+                          <ScoreDistribution recordCount="2" value="a"/>
+                          <ScoreDistribution recordCount="3" value="b"/>
+                          <Node score="b" recordCount="3">
+                            <SimplePredicate field="INT100" operator="lessThan" value="-55.5"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="3" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="2">
+                            <True/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="17">
+                        <True/>
+                        <ScoreDistribution recordCount="17" value="a"/>
+                        <ScoreDistribution recordCount="0" value="b"/>
+                      </Node>
+                    </Node>
+                    <Node score="a" recordCount="53">
+                      <True/>
+                      <ScoreDistribution recordCount="29" value="a"/>
+                      <ScoreDistribution recordCount="24" value="b"/>
+                      <Node score="a" recordCount="5">
+                        <SimplePredicate field="TARGET_INT100" operator="lessThan" value="-75"/>
+                        <ScoreDistribution recordCount="5" value="a"/>
+                        <ScoreDistribution recordCount="0" value="b"/>
+                      </Node>
+                      <Node score="a" recordCount="48">
+                        <True/>
+                        <ScoreDistribution recordCount="24" value="a"/>
+                        <ScoreDistribution recordCount="24" value="b"/>
+                        <Node score="b" recordCount="7">
+                          <SimplePredicate field="NORM100" operator="lessThan" value="-42.0671501159668"/>
+                          <ScoreDistribution recordCount="1" value="a"/>
+                          <ScoreDistribution recordCount="6" value="b"/>
+                          <Node score="a" recordCount="2">
+                            <SimplePredicate field="INT100" operator="lessThan" value="13"/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                          <Node score="b" recordCount="5">
+                            <True/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="5" value="b"/>
+                          </Node>
+                        </Node>
+                        <Node score="a" recordCount="41">
+                          <True/>
+                          <ScoreDistribution recordCount="23" value="a"/>
+                          <ScoreDistribution recordCount="18" value="b"/>
+                          <Node score="b" recordCount="33">
+                            <SimplePredicate field="TARGET_INT100" operator="lessThan" value="68"/>
+                            <ScoreDistribution recordCount="16" value="a"/>
+                            <ScoreDistribution recordCount="17" value="b"/>
+                            <Node score="a" recordCount="19">
+                              <SimplePredicate field="TARGET_INT100" operator="lessThan" value="9"/>
+                              <ScoreDistribution recordCount="12" value="a"/>
+                              <ScoreDistribution recordCount="7" value="b"/>
+                              <Node score="a" recordCount="7">
+                                <SimplePredicate field="INT_0_1" operator="lessThan" value="0.5"/>
+                                <ScoreDistribution recordCount="7" value="a"/>
+                                <ScoreDistribution recordCount="0" value="b"/>
+                              </Node>
+                              <Node score="b" recordCount="12">
+                                <True/>
+                                <ScoreDistribution recordCount="5" value="a"/>
+                                <ScoreDistribution recordCount="7" value="b"/>
+                                <Node score="b" recordCount="4">
+                                  <SimplePredicate field="TARGET_INT100" operator="lessThan" value="-44"/>
+                                  <ScoreDistribution recordCount="0" value="a"/>
+                                  <ScoreDistribution recordCount="4" value="b"/>
+                                </Node>
+                                <Node score="a" recordCount="8">
+                                  <True/>
+                                  <ScoreDistribution recordCount="5" value="a"/>
+                                  <ScoreDistribution recordCount="3" value="b"/>
+                                  <Node score="a" recordCount="6">
+                                    <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.829380631446838"/>
+                                    <ScoreDistribution recordCount="5" value="a"/>
+                                    <ScoreDistribution recordCount="1" value="b"/>
+                                    <Node score="b" recordCount="1">
+                                      <SimplePredicate field="INT100" operator="lessThan" value="-24.5"/>
+                                      <ScoreDistribution recordCount="0" value="a"/>
+                                      <ScoreDistribution recordCount="1" value="b"/>
+                                    </Node>
+                                    <Node score="a" recordCount="5">
+                                      <True/>
+                                      <ScoreDistribution recordCount="5" value="a"/>
+                                      <ScoreDistribution recordCount="0" value="b"/>
+                                    </Node>
+                                  </Node>
+                                  <Node score="b" recordCount="2">
+                                    <True/>
+                                    <ScoreDistribution recordCount="0" value="a"/>
+                                    <ScoreDistribution recordCount="2" value="b"/>
+                                  </Node>
+                                </Node>
+                              </Node>
+                            </Node>
+                            <Node score="b" recordCount="14">
+                              <True/>
+                              <ScoreDistribution recordCount="4" value="a"/>
+                              <ScoreDistribution recordCount="10" value="b"/>
+                              <Node score="b" recordCount="12">
+                                <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.887734651565552"/>
+                                <ScoreDistribution recordCount="2" value="a"/>
+                                <ScoreDistribution recordCount="10" value="b"/>
+                                <Node score="a" recordCount="1">
+                                  <SimplePredicate field="INT100" operator="lessThan" value="-30.5"/>
+                                  <ScoreDistribution recordCount="1" value="a"/>
+                                  <ScoreDistribution recordCount="0" value="b"/>
+                                </Node>
+                                <Node score="b" recordCount="11">
+                                  <True/>
+                                  <ScoreDistribution recordCount="1" value="a"/>
+                                  <ScoreDistribution recordCount="10" value="b"/>
+                                  <Node score="b" recordCount="8">
+                                    <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.704795241355896"/>
+                                    <ScoreDistribution recordCount="0" value="a"/>
+                                    <ScoreDistribution recordCount="8" value="b"/>
+                                  </Node>
+                                  <Node score="b" recordCount="3">
+                                    <True/>
+                                    <ScoreDistribution recordCount="1" value="a"/>
+                                    <ScoreDistribution recordCount="2" value="b"/>
+                                  </Node>
+                                </Node>
+                              </Node>
+                              <Node score="a" recordCount="2">
+                                <True/>
+                                <ScoreDistribution recordCount="2" value="a"/>
+                                <ScoreDistribution recordCount="0" value="b"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                          <Node score="a" recordCount="8">
+                            <True/>
+                            <ScoreDistribution recordCount="7" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                            <Node score="a" recordCount="2">
+                              <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.511780381202698"/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                            </Node>
+                            <Node score="a" recordCount="6">
+                              <True/>
+                              <ScoreDistribution recordCount="6" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node score="a" recordCount="183">
+              <True/>
+              <ScoreDistribution recordCount="131" value="a"/>
+              <ScoreDistribution recordCount="52" value="b"/>
+              <Node score="a" recordCount="121">
+                <SimplePredicate field="NORM100" operator="lessThan" value="34.0549011230469"/>
+                <ScoreDistribution recordCount="97" value="a"/>
+                <ScoreDistribution recordCount="24" value="b"/>
+                <Node score="b" recordCount="13">
+                  <SimplePredicate field="TARGET_INT100" operator="lessThan" value="-80.5"/>
+                  <ScoreDistribution recordCount="6" value="a"/>
+                  <ScoreDistribution recordCount="7" value="b"/>
+                  <Node score="a" recordCount="8">
+                    <SimplePredicate field="INT100" operator="lessThan" value="77"/>
+                    <ScoreDistribution recordCount="6" value="a"/>
+                    <ScoreDistribution recordCount="2" value="b"/>
+                    <Node score="a" recordCount="5">
+                      <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.531481802463531"/>
+                      <ScoreDistribution recordCount="5" value="a"/>
+                      <ScoreDistribution recordCount="0" value="b"/>
+                    </Node>
+                    <Node score="b" recordCount="3">
+                      <True/>
+                      <ScoreDistribution recordCount="1" value="a"/>
+                      <ScoreDistribution recordCount="2" value="b"/>
+                    </Node>
+                  </Node>
+                  <Node score="b" recordCount="5">
+                    <True/>
+                    <ScoreDistribution recordCount="0" value="a"/>
+                    <ScoreDistribution recordCount="5" value="b"/>
+                  </Node>
+                </Node>
+                <Node score="a" recordCount="108">
+                  <True/>
+                  <ScoreDistribution recordCount="91" value="a"/>
+                  <ScoreDistribution recordCount="17" value="b"/>
+                  <Node score="a" recordCount="106">
+                    <SimplePredicate field="TARGET_INT100" operator="lessThan" value="92.5"/>
+                    <ScoreDistribution recordCount="91" value="a"/>
+                    <ScoreDistribution recordCount="15" value="b"/>
+                    <Node score="a" recordCount="105">
+                      <SimplePredicate field="TARGET_CONT" operator="lessThan" value="47.6001892089844"/>
+                      <ScoreDistribution recordCount="91" value="a"/>
+                      <ScoreDistribution recordCount="14" value="b"/>
+                      <Node score="a" recordCount="29">
+                        <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-0.371316909790039"/>
+                        <ScoreDistribution recordCount="21" value="a"/>
+                        <ScoreDistribution recordCount="8" value="b"/>
+                        <Node score="a" recordCount="23">
+                          <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-3.80407118797302"/>
+                          <ScoreDistribution recordCount="19" value="a"/>
+                          <ScoreDistribution recordCount="4" value="b"/>
+                          <Node score="b" recordCount="5">
+                            <SimpleSetPredicate field="EMPTY_STR" booleanOperator="isIn">
+                              <Array n="1" type="string"> "B"</Array>
+                            </SimpleSetPredicate>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="3" value="b"/>
+                            <Node score="a" recordCount="2">
+                              <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.295217216014862"/>
+                              <ScoreDistribution recordCount="2" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="3">
+                              <True/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="3" value="b"/>
+                            </Node>
+                          </Node>
+                          <Node score="a" recordCount="18">
+                            <True/>
+                            <ScoreDistribution recordCount="17" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                            <Node score="a" recordCount="14">
+                              <SimplePredicate field="TARGET_INT100" operator="lessThan" value="54.5"/>
+                              <ScoreDistribution recordCount="14" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="a" recordCount="4">
+                              <True/>
+                              <ScoreDistribution recordCount="3" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node score="b" recordCount="6">
+                          <True/>
+                          <ScoreDistribution recordCount="2" value="a"/>
+                          <ScoreDistribution recordCount="4" value="b"/>
+                          <Node score="a" recordCount="3">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.729311585426331"/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="1" value="b"/>
+                          </Node>
+                          <Node score="b" recordCount="3">
+                            <True/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="3" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="76">
+                        <True/>
+                        <ScoreDistribution recordCount="70" value="a"/>
+                        <ScoreDistribution recordCount="6" value="b"/>
+                        <Node score="a" recordCount="45">
+                          <SimplePredicate field="TARGET_CONT" operator="lessThan" value="25.1656494140625"/>
+                          <ScoreDistribution recordCount="45" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                        <Node score="a" recordCount="31">
+                          <True/>
+                          <ScoreDistribution recordCount="25" value="a"/>
+                          <ScoreDistribution recordCount="6" value="b"/>
+                          <Node score="b" recordCount="3">
+                            <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.221072852611542"/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="2" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="28">
+                            <True/>
+                            <ScoreDistribution recordCount="24" value="a"/>
+                            <ScoreDistribution recordCount="4" value="b"/>
+                            <Node score="b" recordCount="1">
+                              <SimplePredicate field="TARGET_CONT" operator="lessThan" value="25.7011680603027"/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                            </Node>
+                            <Node score="a" recordCount="27">
+                              <True/>
+                              <ScoreDistribution recordCount="24" value="a"/>
+                              <ScoreDistribution recordCount="3" value="b"/>
+                              <Node score="a" recordCount="13">
+                                <SimplePredicate field="NORM100" operator="lessThan" value="19.0118141174316"/>
+                                <ScoreDistribution recordCount="10" value="a"/>
+                                <ScoreDistribution recordCount="3" value="b"/>
+                                <Node score="a" recordCount="11">
+                                  <SimplePredicate field="NORM100" operator="lessThan" value="16.5826625823975"/>
+                                  <ScoreDistribution recordCount="10" value="a"/>
+                                  <ScoreDistribution recordCount="1" value="b"/>
+                                  <Node score="a" recordCount="3">
+                                    <SimplePredicate field="NORM100" operator="lessThan" value="4.70497608184814"/>
+                                    <ScoreDistribution recordCount="2" value="a"/>
+                                    <ScoreDistribution recordCount="1" value="b"/>
+                                  </Node>
+                                  <Node score="a" recordCount="8">
+                                    <True/>
+                                    <ScoreDistribution recordCount="8" value="a"/>
+                                    <ScoreDistribution recordCount="0" value="b"/>
+                                  </Node>
+                                </Node>
+                                <Node score="b" recordCount="2">
+                                  <True/>
+                                  <ScoreDistribution recordCount="0" value="a"/>
+                                  <ScoreDistribution recordCount="2" value="b"/>
+                                </Node>
+                              </Node>
+                              <Node score="a" recordCount="14">
+                                <True/>
+                                <ScoreDistribution recordCount="14" value="a"/>
+                                <ScoreDistribution recordCount="0" value="b"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node score="b" recordCount="1">
+                      <True/>
+                      <ScoreDistribution recordCount="0" value="a"/>
+                      <ScoreDistribution recordCount="1" value="b"/>
+                    </Node>
+                  </Node>
+                  <Node score="b" recordCount="2">
+                    <True/>
+                    <ScoreDistribution recordCount="0" value="a"/>
+                    <ScoreDistribution recordCount="2" value="b"/>
+                  </Node>
+                </Node>
+              </Node>
+              <Node score="a" recordCount="62">
+                <True/>
+                <ScoreDistribution recordCount="34" value="a"/>
+                <ScoreDistribution recordCount="28" value="b"/>
+                <Node score="a" recordCount="54">
+                  <SimplePredicate field="TARGET_INT100" operator="lessThan" value="67"/>
+                  <ScoreDistribution recordCount="33" value="a"/>
+                  <ScoreDistribution recordCount="21" value="b"/>
+                  <Node score="b" recordCount="4">
+                    <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.119398728013039"/>
+                    <ScoreDistribution recordCount="0" value="a"/>
+                    <ScoreDistribution recordCount="4" value="b"/>
+                  </Node>
+                  <Node score="a" recordCount="50">
+                    <True/>
+                    <ScoreDistribution recordCount="33" value="a"/>
+                    <ScoreDistribution recordCount="17" value="b"/>
+                    <Node score="a" recordCount="20">
+                      <SimpleSetPredicate field="TARGET_TRI" booleanOperator="isIn">
+                        <Array n="1" type="string"> "c"</Array>
+                      </SimpleSetPredicate>
+                      <ScoreDistribution recordCount="17" value="a"/>
+                      <ScoreDistribution recordCount="3" value="b"/>
+                      <Node score="a" recordCount="19">
+                        <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.965637564659119"/>
+                        <ScoreDistribution recordCount="17" value="a"/>
+                        <ScoreDistribution recordCount="2" value="b"/>
+                        <Node score="a" recordCount="4">
+                          <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.399745404720306"/>
+                          <ScoreDistribution recordCount="2" value="a"/>
+                          <ScoreDistribution recordCount="2" value="b"/>
+                        </Node>
+                        <Node score="a" recordCount="15">
+                          <True/>
+                          <ScoreDistribution recordCount="15" value="a"/>
+                          <ScoreDistribution recordCount="0" value="b"/>
+                        </Node>
+                      </Node>
+                      <Node score="b" recordCount="1">
+                        <True/>
+                        <ScoreDistribution recordCount="0" value="a"/>
+                        <ScoreDistribution recordCount="1" value="b"/>
+                      </Node>
+                    </Node>
+                    <Node score="a" recordCount="30">
+                      <True/>
+                      <ScoreDistribution recordCount="16" value="a"/>
+                      <ScoreDistribution recordCount="14" value="b"/>
+                      <Node score="b" recordCount="27">
+                        <SimplePredicate field="INT100" operator="lessThan" value="76.5"/>
+                        <ScoreDistribution recordCount="13" value="a"/>
+                        <ScoreDistribution recordCount="14" value="b"/>
+                        <Node score="a" recordCount="15">
+                          <SimplePredicate field="INT100" operator="lessThan" value="9.5"/>
+                          <ScoreDistribution recordCount="10" value="a"/>
+                          <ScoreDistribution recordCount="5" value="b"/>
+                          <Node score="b" recordCount="2">
+                            <SimplePredicate field="TARGET_CONT" operator="lessThan" value="-12.2356548309326"/>
+                            <ScoreDistribution recordCount="0" value="a"/>
+                            <ScoreDistribution recordCount="2" value="b"/>
+                          </Node>
+                          <Node score="a" recordCount="13">
+                            <True/>
+                            <ScoreDistribution recordCount="10" value="a"/>
+                            <ScoreDistribution recordCount="3" value="b"/>
+                            <Node score="a" recordCount="10">
+                              <SimplePredicate field="NORM100" operator="lessThan" value="43.7895202636719"/>
+                              <ScoreDistribution recordCount="9" value="a"/>
+                              <ScoreDistribution recordCount="1" value="b"/>
+                              <Node score="a" recordCount="2">
+                                <SimplePredicate field="INT100" operator="lessThan" value="-56.5"/>
+                                <ScoreDistribution recordCount="1" value="a"/>
+                                <ScoreDistribution recordCount="1" value="b"/>
+                              </Node>
+                              <Node score="a" recordCount="8">
+                                <True/>
+                                <ScoreDistribution recordCount="8" value="a"/>
+                                <ScoreDistribution recordCount="0" value="b"/>
+                              </Node>
+                            </Node>
+                            <Node score="b" recordCount="3">
+                              <True/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="2" value="b"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node score="b" recordCount="12">
+                          <True/>
+                          <ScoreDistribution recordCount="3" value="a"/>
+                          <ScoreDistribution recordCount="9" value="b"/>
+                          <Node score="b" recordCount="10">
+                            <SimplePredicate field="NORM100" operator="lessThan" value="44.8361358642578"/>
+                            <ScoreDistribution recordCount="1" value="a"/>
+                            <ScoreDistribution recordCount="9" value="b"/>
+                            <Node score="a" recordCount="1">
+                              <SimplePredicate field="NORM_0_1" operator="lessThan" value="0.160806328058243"/>
+                              <ScoreDistribution recordCount="1" value="a"/>
+                              <ScoreDistribution recordCount="0" value="b"/>
+                            </Node>
+                            <Node score="b" recordCount="9">
+                              <True/>
+                              <ScoreDistribution recordCount="0" value="a"/>
+                              <ScoreDistribution recordCount="9" value="b"/>
+                            </Node>
+                          </Node>
+                          <Node score="a" recordCount="2">
+                            <True/>
+                            <ScoreDistribution recordCount="2" value="a"/>
+                            <ScoreDistribution recordCount="0" value="b"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node score="a" recordCount="3">
+                        <True/>
+                        <ScoreDistribution recordCount="3" value="a"/>
+                        <ScoreDistribution recordCount="0" value="b"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node score="b" recordCount="8">
+                  <True/>
+                  <ScoreDistribution recordCount="1" value="a"/>
+                  <ScoreDistribution recordCount="7" value="b"/>
+                  <Node score="b" recordCount="6">
+                    <SimplePredicate field="TARGET_INT100" operator="lessThan" value="85.5"/>
+                    <ScoreDistribution recordCount="0" value="a"/>
+                    <ScoreDistribution recordCount="6" value="b"/>
+                  </Node>
+                  <Node score="a" recordCount="2">
+                    <True/>
+                    <ScoreDistribution recordCount="1" value="a"/>
+                    <ScoreDistribution recordCount="1" value="b"/>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Extension>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>

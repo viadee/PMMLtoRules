@@ -7,33 +7,35 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
+import de.viadee.translator.RuleTranslatorFacade;
+
 /**
  * @author Tobias Otte
  * Just a test client
  */
 public class TestClient {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		RuleTranslatorFacade facade = new RuleTranslatorFacade();
-		File pmml = new File("resources/RapidminerCarinsurance4.0.xml");
-		//File pmml = new File("resources/pmml_spss_iris_tree4.0.xml");
-		File ruleSkeleton = null;
-		try {
-			ruleSkeleton = facade.createSkeleton("drools", pmml);
-		} catch (TransformerException e) {
-			e.printStackTrace();
-		}
-		try {
-			facade.createRules("drools", ruleSkeleton);
-		} catch (TransformerException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-	}
+    /**
+     * @param args
+     */
+    public static void main(final String[] args) {
+        final RuleTranslatorFacade facade = new RuleTranslatorFacade();
+        final File pmml = new File("RapidminerCarinsurance4.0.xml");
+        //File pmml = new File("pmml_spss_iris_tree4.0.xml");
+        File ruleSkeleton = null;
+        try {
+            ruleSkeleton = facade.createSkeleton("drools", pmml);
+        } catch (final TransformerException e) {
+            e.printStackTrace();
+        }
+        try {
+            facade.createRules("drools", ruleSkeleton);
+        } catch (final TransformerException e) {
+            e.printStackTrace();
+        } catch (final IOException e) {
+            e.printStackTrace();
+        } catch (final SAXException e) {
+            e.printStackTrace();
+        }
+    }
 }

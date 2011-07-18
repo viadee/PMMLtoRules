@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<names xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+   	<package name="de.viadee.CarInsurance"/>
+	<object name="Ownership">
+		<field name="hp" attribute="car.hp"></field>
+		<field name="brand" attribute="car.brand"></field>
+		<field name="age" attribute="customer.age"></field>
+		<field name="gender" attribute="customer.gender"></field>
+		<field name="risk" attribute="risk"></field>
+	</object>
+	<rules>
+		<rule name="Older than 25 over 340hp has medium risk"></rule>
+		<rule name="Older than 65 between 188hp and 340hp has medium risk"></rule>
+		<rule name="Older than 65 between 160hp and 188hp has low risk"></rule>
+		<rule name="Older than 25 younger than 65 in an Audi between 160hp and 340hp has low risk "></rule>
+		<rule name="Between 60 and 65 in Mercedes with between 160hp and 340hp has meidum risk"></rule>
+		<rule name="Between 25 and 60 in Mercedes with between 160hp and 340hp has low risk"></rule>
+		<rule name="Between 25 and 65 in Volkswagen with between 160hp and 340hp has low risk"></rule>
+		<rule name="Under 25 over 160hp has high risk"></rule>
+		<rule name="Over 25 between 60hp and 160hp has low risk"></rule>
+		<rule name="Under 25 between 60hp and 160hp has medium risk"></rule>
+		<rule name="Under 60hp has low risk"></rule>
+		<rule name="12"></rule>
+		<rule name="13"></rule>
+		<rule name="14"></rule>
+		<rule name="15"></rule>
+		<rule name="16"></rule>
+	</rules>
+</names>

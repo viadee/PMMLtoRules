@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="names">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="package">
+					<xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="imports" minOccurs="0">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded" minOccurs="0">
+							<xs:element name="import">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="object">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded" minOccurs="0">
+							<xs:element name="field">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+									<xs:attribute name="attribute" type="xs:string"
+										use="required"></xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="rules">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded" minOccurs="0">
+							<xs:element name="rule">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

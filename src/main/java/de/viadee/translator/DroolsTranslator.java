@@ -67,7 +67,7 @@ public class DroolsTranslator {
 
     /**
      * This method creates a rule skeleton
-     * @param pmml: The PMML input to be translated
+     * @param pmml The PMML input to be translated
      * @return The skeleton of a drools rule package in xml
      * @throws TransformerException
      */
@@ -97,7 +97,7 @@ public class DroolsTranslator {
 
     /**
      * This methods validates a drools XML file
-     * @param drools XML
+     * @param xml XML
      * @return true if valid, false if not
      */
     public boolean validateXml(final File xml) {
@@ -110,7 +110,7 @@ public class DroolsTranslator {
 
     /**
      * This methods converts the xml rule package to the drools rule language, using the drools api.
-     * @param xml: xml rule package
+     * @param xml xml rule package
      * @return drl rule package
      * @throws IOException
      * @throws SAXException

@@ -56,7 +56,7 @@ public class RuleTranslatorFacade {
             SAXException {
         File rules = null;
 
-        if (language.equalsIgnoreCase("drools")) {
+        if ("drools".equalsIgnoreCase(language)) {
             this.droolsTranslator = new DroolsTranslator();
             File xmlRules = null;
             xmlRules = this.droolsTranslator.translateToRules(ruleSkeleton);

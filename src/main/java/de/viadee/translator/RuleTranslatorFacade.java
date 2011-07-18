@@ -74,7 +74,7 @@ public class RuleTranslatorFacade {
      */
     public boolean validatePMML(final File pmml) {
         final XMLValidator validator = new XMLValidator();
-        final File pmmlSchema = new File("pmmlSchema.xsd");
+        final File pmmlSchema = new File(this.getClass().getClassLoader().getResource("pmmlSchema.xsd").getFile());
         return validator.validate(pmml, pmmlSchema);
     }
 }

@@ -18,8 +18,6 @@ import org.drools.lang.DrlDumper;
 import org.drools.lang.descr.PackageDescr;
 import org.xml.sax.SAXException;
 
-import de.viadee.translator.XMLValidator;
-
 /**
  * @author Tobias Otte
  * This translator represents an example implementation to convert PMML decision trees to Drools rules.
@@ -46,10 +44,14 @@ public class DroolsTranslator {
      * @throws TransformerConfigurationException
      */
     public DroolsTranslator() throws TransformerConfigurationException {
-        final File NamespaceFilterXSLT = new File("NamespaceFilter.xslt");
-        final File PMMLtoRulesXSLT = new File("PMMLtoRules.xslt");
-        final File ObjectMappingXSLT = new File("ObjectMapping.xslt");
-        final File NamespaceAddXSLT = new File("AddNamespaces.xslt");
+        final File NamespaceFilterXSLT = new File(this.getClass().getClassLoader().getResource("NamespaceFilter.xslt")
+                .getFile());
+        final File PMMLtoRulesXSLT = new File(this.getClass().getClassLoader().getResource("PMMLtoRules.xslt")
+                .getFile());
+        final File ObjectMappingXSLT = new File(this.getClass().getClassLoader().getResource("ObjectMapping.xslt")
+                .getFile());
+        final File NamespaceAddXSLT = new File(this.getClass().getClassLoader().getResource("AddNamespaces.xslt")
+                .getFile());
 
         this.NamespaceFilterSource = new StreamSource(NamespaceFilterXSLT);
         this.PMMLtoRulesSource = new StreamSource(PMMLtoRulesXSLT);
@@ -73,12 +75,15 @@ public class DroolsTranslator {
      */
     public File createSkeleton(final File pmml) throws TransformerException {
         this.pmmlSource = new StreamSource(pmml);
-        this.NamespaceFilterTransformer.transform(this.pmmlSource, new StreamResult(new File(
-                "PmmlWithoutNamespaces.xml")));
-        this.PMMLtoRulesTransformer.transform(new StreamSource(new File("PmmlWithoutNamespaces.xml")),
-                new StreamResult(new File("DroolsRuleSkeleton.xml")));
+        this.NamespaceFilterTransformer.transform(this.pmmlSource, new StreamResult(new File(this.getClass()
+                .getClassLoader().getResource("PmmlWithoutNamespaces.xml").getFile())));
+        this.PMMLtoRulesTransformer.transform(
+                new StreamSource(new File(this.getClass().getClassLoader().getResource("PmmlWithoutNamespaces.xml")
+                        .getFile())),
+                new StreamResult(new File(this.getClass().getClassLoader().getResource("DroolsRuleSkeleton.xml")
+                        .getFile())));
 
-        return new File("DroolsRuleSkeleton.xml");
+        return new File(this.getClass().getClassLoader().getResource("DroolsRuleSkeleton.xml").getFile());
     }
 
     /**
@@ -88,11 +93,16 @@ public class DroolsTranslator {
      * @throws TransformerException
      */
     public File translateToRules(final File skeleton) throws TransformerException {
-        this.ObjectMappingTransformer.transform(new StreamSource(skeleton),
-                new StreamResult(new File("DroolsRulesWithoutNamespaces.xml")));
-        this.NamespaceAddTransformer.transform(new StreamSource(new File("DroolsRulesWithoutNamespaces.xml")),
-                new StreamResult(new File("DroolsRulesWithNamespaces.xml")));
-        return new File("DroolsRulesWithNamespaces.xml");
+        this.ObjectMappingTransformer.transform(
+                new StreamSource(skeleton),
+                new StreamResult(new File(this.getClass().getClassLoader()
+                        .getResource("DroolsRulesWithoutNamespaces.xml").getFile())));
+        this.NamespaceAddTransformer.transform(
+                new StreamSource(new File(this.getClass().getClassLoader()
+                        .getResource("DroolsRulesWithoutNamespaces.xml").getFile())),
+                new StreamResult(new File(this.getClass().getClassLoader().getResource("DroolsRulesWithNamespaces.xml")
+                        .getFile())));
+        return new File(this.getClass().getClassLoader().getResource("DroolsRulesWithNamespaces.xml").getFile());
     }
 
     /**
@@ -101,11 +111,13 @@ public class DroolsTranslator {
      * @return true if valid, false if not
      */
     public boolean validateXml(final File xml) {
-        return this.validator.validate(xml, new File("drools-4.0.xsd"));
+        return this.validator.validate(xml, new File(this.getClass().getClassLoader().getResource("drools-4.0.xsd")
+                .getFile()));
     }
 
     public boolean validateNames() {
-        return this.validator.validate(new File("Names.xml"), new File("NamesSchema.xsd"));
+        return this.validator.validate(new File(this.getClass().getClassLoader().getResource("Names.xml").getFile()),
+                new File(this.getClass().getClassLoader().getResource("NamesSchema.xsd").getFile()));
     }
 
     /**
@@ -121,11 +133,11 @@ public class DroolsTranslator {
         final DrlDumper dumper = new DrlDumper();
         final FileReader filereader = new FileReader(xml);
         final PackageDescr descr = reader.read(filereader);
-        final FileWriter writer = new FileWriter(new File("DroolsRulesPackage.drl"));
+        final FileWriter writer = new FileWriter(new File(this.getClass().getClassLoader()
+                .getResource("DroolsRulesPackage.drl").getFile()));
         writer.write(dumper.dump(descr));
         writer.flush();
         writer.close();
-        return new File("DroolsRulesPackage.drl");
+        return new File(this.getClass().getClassLoader().getResource("DroolsRulesPackage.drl").getFile());
     }
-
 }

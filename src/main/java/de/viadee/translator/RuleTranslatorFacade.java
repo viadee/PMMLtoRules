@@ -35,7 +35,7 @@ public class RuleTranslatorFacade {
             System.out.println("Please enter a valid rule language");
         }
         if (pmmlValid) {
-            if (language.equalsIgnoreCase("drools")) {
+            if ("drools".equalsIgnoreCase(language)) {
                 this.droolsTranslator = new DroolsTranslator();
                 ruleSkeleton = this.droolsTranslator.createSkeleton(pmmlFile);
             }

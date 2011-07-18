@@ -7,9 +7,6 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
-import de.viadee.translator.DroolsTranslator;
-import de.viadee.translator.XMLValidator;
-
 /**
  * @author Tobias Otte
  * This facade is used to provide a common interface to the translations.
@@ -21,8 +18,8 @@ public class RuleTranslatorFacade {
     private DroolsTranslator droolsTranslator;
 
     /**
-     * @param language: The rule language that is the target of the translation
-     * @param pmmlFile: The pmml file to be translated
+     * @param language The rule language that is the target of the translation
+     * @param pmmlFile The pmml file to be translated
      * @return File with a rule Skeleton
      * @throws TransformerException
      */
@@ -48,8 +45,8 @@ public class RuleTranslatorFacade {
 
     /**
      * This method creates a rule package based on the skeleton
-     * @param language: The rule language that is the target of the translation
-     * @param ruleSkeleton: Skeleton of a rule package that has been created before
+     * @param language The rule language that is the target of the translation
+     * @param ruleSkeleton Skeleton of a rule package that has been created before
      * @return Rule package
      * @throws TransformerException
      * @throws IOException
@@ -72,7 +69,7 @@ public class RuleTranslatorFacade {
 
     /**
      * This methods validates the PMML input
-     * @param pmml: The pmml file that needs to be validated
+     * @param pmml The pmml file that needs to be validated
      * @return true if the file is valid, false if not
      */
     public boolean validatePMML(final File pmml) {

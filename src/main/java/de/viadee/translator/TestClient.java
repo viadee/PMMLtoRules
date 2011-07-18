@@ -18,7 +18,7 @@ public class TestClient {
      */
     public static void main(final String[] args) {
         final RuleTranslatorFacade facade = new RuleTranslatorFacade();
-        final File pmml = new File(this.getClass().getClassLoader().getResource("RapidminerCarinsurance4.0.xml")
+        final File pmml = new File(TestClient.class.getClassLoader().getResource("RapidminerCarinsurance4.0.xml")
                 .getFile());
         //File pmml = new File("pmml_spss_iris_tree4.0.xml");
         File ruleSkeleton = null;
